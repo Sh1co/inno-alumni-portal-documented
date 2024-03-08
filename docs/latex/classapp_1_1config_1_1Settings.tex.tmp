@@ -1,0 +1,20 @@
+\hypertarget{classapp_1_1config_1_1Settings}{}\doxysection{app.\+config.\+Settings Class Reference}
+\label{classapp_1_1config_1_1Settings}\index{app.config.Settings@{app.config.Settings}}
+
+
+Inheritance diagram for app.\+config.\+Settings\+:
+% FIG 0
+
+
+Collaboration diagram for app.\+config.\+Settings\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classapp_1_1config_1_1Settings_1_1Config}{Config}}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\mbox{\hyperlink{config_8py}{config.\+py}}\end{DoxyCompactItemize}

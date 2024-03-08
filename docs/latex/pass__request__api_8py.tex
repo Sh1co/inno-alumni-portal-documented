@@ -1,0 +1,25 @@
+\hypertarget{pass__request__api_8py}{}\doxysection{app/api/pass\+\_\+request\+\_\+api.py File Reference}
+\label{pass__request__api_8py}\index{app/api/pass\_request\_api.py@{app/api/pass\_request\_api.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacepass__request__api}{pass\+\_\+request\+\_\+api}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_a8b2fe841ecef9aa49661952e742cb946}{pass\+\_\+request\+\_\+api.\+get\+\_\+all\+\_\+pass\+\_\+requests}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_afa7745c2d1ef169d409f070528acafb8}{pass\+\_\+request\+\_\+api.\+get\+\_\+all\+\_\+pass\+\_\+requests\+\_\+by\+\_\+admin}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_a41d68ec90cee9a0f2b55604fb13faeaf}{pass\+\_\+request\+\_\+api.\+update\+\_\+pass\+\_\+request}} (str request\+\_\+id, \mbox{\hyperlink{classschemas_1_1UpdateRequest}{schemas.\+Update\+Request}} to\+\_\+update, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_a82a77ad8b912af8733861c2f4d331427}{pass\+\_\+request\+\_\+api.\+order\+\_\+pass}} (\mbox{\hyperlink{classschemas_1_1OrderPassRequest}{schemas.\+Order\+Pass\+Request}} pass\+\_\+request, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_acd2ba70a956f93c30ae805b839a4cdd2}{pass\+\_\+request\+\_\+api.\+disconnect\+\_\+pass\+\_\+request}} (str pass\+\_\+request\+\_\+id, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacepass__request__api_a49da07a30bbdff04e0641bfbb22ffbda}{pass\+\_\+request\+\_\+api.\+router}} = APIRouter(tags=\mbox{[}\char`\"{}Obtain Pass\char`\"{}\mbox{]}, prefix=\char`\"{}/request\+\_\+pass\char`\"{})
+\end{DoxyCompactItemize}

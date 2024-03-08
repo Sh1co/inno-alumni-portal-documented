@@ -1,0 +1,311 @@
+\hypertarget{namespaceuser__api}{}\doxysection{user\+\_\+api Namespace Reference}
+\label{namespaceuser__api}\index{user\_api@{user\_api}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a6e37fb118dafa58c1ec436d82ae24449}{login\+\_\+alumni}} (OAuth2\+Password\+Request\+Form user\+\_\+cred=Depends())
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a4b9575cfcf23bbb562465d33ced5508d}{create\+\_\+alumni\+\_\+account}} (\mbox{\hyperlink{classschemas_1_1SignUpUser}{schemas.\+Sign\+Up\+User}} user\+\_\+to\+\_\+create)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_ae5257a830fabe8cfe5a21f6cdacc3d11}{create\+\_\+admin\+\_\+account}} (\mbox{\hyperlink{classschemas_1_1CreateAdminUser}{schemas.\+Create\+Admin\+User}} admin)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_af9254b716524f4282f67a81a1c80ff03}{update\+\_\+alumni\+\_\+account}} (\mbox{\hyperlink{classschemas_1_1UpdateUser}{schemas.\+Update\+User}} up\+\_\+user, \mbox{\hyperlink{classschemas_1_1InternalUser}{schemas.\+Internal\+User}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a69d39ebf86b767fe002315bd47f58083}{update\+\_\+password}} (\mbox{\hyperlink{classschemas_1_1UpdateUserPassword}{schemas.\+Update\+User\+Password}} pass\+\_\+info, \mbox{\hyperlink{classschemas_1_1UserWithPassword}{schemas.\+User\+With\+Password}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a46a1448d9a92bbea05000562c0e05426}{get\+\_\+current\+\_\+alumni}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a66ae39eba33a63b6b3e2628a9469ba67}{get\+\_\+all\+\_\+registered\+\_\+alumni}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a9e9fd4db700d2afd451c5f1796a7a1b2}{forgot\+\_\+password}} (str university\+\_\+email, Background\+Tasks background\+\_\+tasks)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a525ec20dcd90b5767aff7054753c2e7a}{update\+\_\+password}} (user\+\_\+info)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a326123c0611612fca1813123beb50e7b}{verify\+\_\+account}} (str university\+\_\+email, Background\+Tasks background\+\_\+tasks)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a0bf74a123e6320e9772a024398bfb4d0}{confirm\+\_\+verification}} (\mbox{\hyperlink{classschemas_1_1VerificationCode}{schemas.\+Verification\+Code}} verify)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a98d88fc5c563a42d18382fe7713a9e56}{login\+\_\+with\+\_\+sso}} ()
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a0f2e0b5db0405c5a0059f798d7373f4d}{token\+\_\+callback\+\_\+with\+\_\+sso}} ()
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a621b83baf996324b93db4fe59253e4f4}{user\+\_\+callback\+\_\+with\+\_\+sso}} ()
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a3cc2525787b23b00f7015246383fecb7}{authentication\+\_\+callback\+\_\+with\+\_\+sso}} (Request request)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceuser__api_a6c0e3038d3f38bb3c78858f7f36b388f}{router}} = APIRouter(tags=\mbox{[}\char`\"{}User Authentication\char`\"{}\mbox{]}, prefix=\char`\"{}/user\char`\"{})
+\item 
+dictionary \mbox{\hyperlink{namespaceuser__api_ad3d2b8fd5f7414a168faf292f57a8f0b}{discovery}}
+\item 
+\mbox{\hyperlink{namespaceuser__api_a5c9a6e2b62b403b63f7163fd3cc7f67e}{SSOProvider}} = create\+\_\+provider(name=\char`\"{}oidc\char`\"{}, discovery\+\_\+document=\mbox{\hyperlink{namespaceuser__api_ad3d2b8fd5f7414a168faf292f57a8f0b}{discovery}})
+\item 
+\mbox{\hyperlink{namespaceuser__api_a760e22c2f6ab2d4b6caa8df36ac09782}{sso}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceuser__api_a3cc2525787b23b00f7015246383fecb7}\label{namespaceuser__api_a3cc2525787b23b00f7015246383fecb7}} 
+\index{user\_api@{user\_api}!authentication\_callback\_with\_sso@{authentication\_callback\_with\_sso}}
+\index{authentication\_callback\_with\_sso@{authentication\_callback\_with\_sso}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{authentication\_callback\_with\_sso()}{authentication\_callback\_with\_sso()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+authentication\+\_\+callback\+\_\+with\+\_\+sso (\begin{DoxyParamCaption}\item[{Request}]{request }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Processes the authentication callback from the SSO provider.
+
+Args:
+    request: The incoming request object from the SSO provider containing user authentication details.
+
+Note: This function demonstrates processing the callback and should be customized to handle the authentication logic.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a0bf74a123e6320e9772a024398bfb4d0}\label{namespaceuser__api_a0bf74a123e6320e9772a024398bfb4d0}} 
+\index{user\_api@{user\_api}!confirm\_verification@{confirm\_verification}}
+\index{confirm\_verification@{confirm\_verification}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{confirm\_verification()}{confirm\_verification()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+confirm\+\_\+verification (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1VerificationCode}{schemas.\+Verification\+Code}}}]{verify }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Confirms the account verification of a user using a verification code.
+
+Args:
+    verify: Schema containing the verification code and the user's email.
+    
+Raises:
+    HTTPException: If the user is not found, already verified, verification code expired, or incorrect code is provided.
+    
+Returns:
+    A successful response indicating the account has been verified.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_ae5257a830fabe8cfe5a21f6cdacc3d11}\label{namespaceuser__api_ae5257a830fabe8cfe5a21f6cdacc3d11}} 
+\index{user\_api@{user\_api}!create\_admin\_account@{create\_admin\_account}}
+\index{create\_admin\_account@{create\_admin\_account}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{create\_admin\_account()}{create\_admin\_account()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+create\+\_\+admin\+\_\+account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1CreateAdminUser}{schemas.\+Create\+Admin\+User}}}]{admin }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Registers a new admin account with the provided admin details.
+
+Args:
+    admin: An instance of CreateAdminUser schema containing the admin's registration information.
+
+Raises:
+    HTTPException: 400 error if an admin with the provided email already exists.
+
+Returns:
+    The newly created admin user details.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a4b9575cfcf23bbb562465d33ced5508d}\label{namespaceuser__api_a4b9575cfcf23bbb562465d33ced5508d}} 
+\index{user\_api@{user\_api}!create\_alumni\_account@{create\_alumni\_account}}
+\index{create\_alumni\_account@{create\_alumni\_account}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{create\_alumni\_account()}{create\_alumni\_account()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+create\+\_\+alumni\+\_\+account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1SignUpUser}{schemas.\+Sign\+Up\+User}}}]{user\+\_\+to\+\_\+create }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Registers a new alumni account with the provided user details.
+
+Args:
+    user_to_create: An instance of SignUpUser schema containing the user's signup information.
+
+Raises:
+    HTTPException: 400 error if the password confirmation fails or the user already exists.
+
+Returns:
+    A success message indicating the user has been successfully registered.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a9e9fd4db700d2afd451c5f1796a7a1b2}\label{namespaceuser__api_a9e9fd4db700d2afd451c5f1796a7a1b2}} 
+\index{user\_api@{user\_api}!forgot\_password@{forgot\_password}}
+\index{forgot\_password@{forgot\_password}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{forgot\_password()}{forgot\_password()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+forgot\+\_\+password (\begin{DoxyParamCaption}\item[{str}]{university\+\_\+email,  }\item[{Background\+Tasks}]{background\+\_\+tasks }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initiates the password recovery process by sending a reset password email.
+
+Args:
+    university_email: The email of the user who has forgotten their password.
+    background_tasks: BackgroundTasks object to handle email sending asynchronously.
+    
+Raises:
+    HTTPException: If no user is found with the provided email.
+    
+Returns:
+    A successful response indicating the email has been sent.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a66ae39eba33a63b6b3e2628a9469ba67}\label{namespaceuser__api_a66ae39eba33a63b6b3e2628a9469ba67}} 
+\index{user\_api@{user\_api}!get\_all\_registered\_alumni@{get\_all\_registered\_alumni}}
+\index{get\_all\_registered\_alumni@{get\_all\_registered\_alumni}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{get\_all\_registered\_alumni()}{get\_all\_registered\_alumni()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+get\+\_\+all\+\_\+registered\+\_\+alumni (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceuser__api_a46a1448d9a92bbea05000562c0e05426}\label{namespaceuser__api_a46a1448d9a92bbea05000562c0e05426}} 
+\index{user\_api@{user\_api}!get\_current\_alumni@{get\_current\_alumni}}
+\index{get\_current\_alumni@{get\_current\_alumni}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{get\_current\_alumni()}{get\_current\_alumni()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+get\+\_\+current\+\_\+alumni (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieves the details of the current logged-in alumni user.
+
+Args:
+    cur_user: The current logged-in user obtained from JWT token.
+    
+Returns:
+    The current user's details.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a6e37fb118dafa58c1ec436d82ae24449}\label{namespaceuser__api_a6e37fb118dafa58c1ec436d82ae24449}} 
+\index{user\_api@{user\_api}!login\_alumni@{login\_alumni}}
+\index{login\_alumni@{login\_alumni}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{login\_alumni()}{login\_alumni()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+login\+\_\+alumni (\begin{DoxyParamCaption}\item[{OAuth2\+Password\+Request\+Form }]{user\+\_\+cred = {\ttfamily Depends()} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Authenticates an alumni user and returns an access token.
+
+Args:
+    user_cred: An instance of OAuth2PasswordRequestForm containing the user's email (username) and password.
+
+Raises:
+    HTTPException: 404 error if the user cannot be found or the password is incorrect.
+
+Returns:
+    A JSON object containing the bearer token and its type.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a98d88fc5c563a42d18382fe7713a9e56}\label{namespaceuser__api_a98d88fc5c563a42d18382fe7713a9e56}} 
+\index{user\_api@{user\_api}!login\_with\_sso@{login\_with\_sso}}
+\index{login\_with\_sso@{login\_with\_sso}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{login\_with\_sso()}{login\_with\_sso()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+login\+\_\+with\+\_\+sso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initiates the SSO login process by redirecting the user to the SSO provider's login page.
+
+Returns:
+    A redirection to the SSO login page to start the authentication process.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a0f2e0b5db0405c5a0059f798d7373f4d}\label{namespaceuser__api_a0f2e0b5db0405c5a0059f798d7373f4d}} 
+\index{user\_api@{user\_api}!token\_callback\_with\_sso@{token\_callback\_with\_sso}}
+\index{token\_callback\_with\_sso@{token\_callback\_with\_sso}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{token\_callback\_with\_sso()}{token\_callback\_with\_sso()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+token\+\_\+callback\+\_\+with\+\_\+sso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}SSO token callback endpoint to receive the authentication token.
+
+Note: This function is a placeholder and should be implemented to handle the token received from the SSO provider.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_af9254b716524f4282f67a81a1c80ff03}\label{namespaceuser__api_af9254b716524f4282f67a81a1c80ff03}} 
+\index{user\_api@{user\_api}!update\_alumni\_account@{update\_alumni\_account}}
+\index{update\_alumni\_account@{update\_alumni\_account}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{update\_alumni\_account()}{update\_alumni\_account()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+update\+\_\+alumni\+\_\+account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UpdateUser}{schemas.\+Update\+User}}}]{up\+\_\+user,  }\item[{\mbox{\hyperlink{classschemas_1_1InternalUser}{schemas.\+Internal\+User}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Updates an existing alumni account with the provided new details.
+
+Args:
+    up_user: An instance of UpdateUser schema containing the updated user information.
+    cur_user: The current user session, determined through JWT token authentication.
+
+Returns:
+    The updated user details.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a69d39ebf86b767fe002315bd47f58083}\label{namespaceuser__api_a69d39ebf86b767fe002315bd47f58083}} 
+\index{user\_api@{user\_api}!update\_password@{update\_password}}
+\index{update\_password@{update\_password}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{update\_password()}{update\_password()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily def user\+\_\+api.\+update\+\_\+password (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UpdateUserPassword}{schemas.\+Update\+User\+Password}}}]{pass\+\_\+info,  }\item[{\mbox{\hyperlink{classschemas_1_1UserWithPassword}{schemas.\+User\+With\+Password}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Updates the password of the current logged-in user.
+
+Args:
+    pass_info: Schema containing the current and new password of the user.
+    cur_user: The current logged-in user whose password is to be updated.
+    
+Raises:
+    HTTPException: If the current password provided is incorrect.
+    
+Returns:
+    A response indicating the successful password update.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a525ec20dcd90b5767aff7054753c2e7a}\label{namespaceuser__api_a525ec20dcd90b5767aff7054753c2e7a}} 
+\index{user\_api@{user\_api}!update\_password@{update\_password}}
+\index{update\_password@{update\_password}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{update\_password()}{update\_password()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily def user\+\_\+api.\+update\+\_\+password (\begin{DoxyParamCaption}\item[{}]{user\+\_\+info }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Endpoint to update the password as part of the forgot password process.
+
+Args:
+    user_info: Information required to update the password.
+    
+Returns:
+    A successful response indicating the password has been updated.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a621b83baf996324b93db4fe59253e4f4}\label{namespaceuser__api_a621b83baf996324b93db4fe59253e4f4}} 
+\index{user\_api@{user\_api}!user\_callback\_with\_sso@{user\_callback\_with\_sso}}
+\index{user\_callback\_with\_sso@{user\_callback\_with\_sso}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{user\_callback\_with\_sso()}{user\_callback\_with\_sso()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+user\+\_\+callback\+\_\+with\+\_\+sso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}SSO user callback endpoint to receive user information after successful authentication.
+
+Note: This function is a placeholder and should be implemented to handle user information received from the SSO provider.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceuser__api_a326123c0611612fca1813123beb50e7b}\label{namespaceuser__api_a326123c0611612fca1813123beb50e7b}} 
+\index{user\_api@{user\_api}!verify\_account@{verify\_account}}
+\index{verify\_account@{verify\_account}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{verify\_account()}{verify\_account()}}
+{\footnotesize\ttfamily def user\+\_\+api.\+verify\+\_\+account (\begin{DoxyParamCaption}\item[{str}]{university\+\_\+email,  }\item[{Background\+Tasks }]{background\+\_\+tasks }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Sends an account verification email to the user.
+
+Args:
+    university_email: The email address of the user to verify.
+    background_tasks: BackgroundTasks object for asynchronous email sending.
+    
+Raises:
+    HTTPException: If no user is found with the provided email or the user is already verified.
+    
+Returns:
+    A successful response indicating the verification email has been sent.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceuser__api_ad3d2b8fd5f7414a168faf292f57a8f0b}\label{namespaceuser__api_ad3d2b8fd5f7414a168faf292f57a8f0b}} 
+\index{user\_api@{user\_api}!discovery@{discovery}}
+\index{discovery@{discovery}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{discovery}{discovery}}
+{\footnotesize\ttfamily dictionary user\+\_\+api.\+discovery}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}authorization\_endpoint"{}}: \textcolor{stringliteral}{'https://sso.university.innopolis.ru/adfs/oauth2/authorize'},}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}token\_endpoint"{}}: \textcolor{stringliteral}{"{}http://127.0.0.1:9001/api/v1/user/token\_sso"{}},}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}userinfo\_endpoint"{}}: \textcolor{stringliteral}{"{}http://127.0.0.1:9001/api/v1/user/user\_sso"{}},}
+\DoxyCodeLine{5 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceuser__api_a6c0e3038d3f38bb3c78858f7f36b388f}\label{namespaceuser__api_a6c0e3038d3f38bb3c78858f7f36b388f}} 
+\index{user\_api@{user\_api}!router@{router}}
+\index{router@{router}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily user\+\_\+api.\+router = APIRouter(tags=\mbox{[}\char`\"{}User Authentication\char`\"{}\mbox{]}, prefix=\char`\"{}/user\char`\"{})}
+
+\mbox{\Hypertarget{namespaceuser__api_a760e22c2f6ab2d4b6caa8df36ac09782}\label{namespaceuser__api_a760e22c2f6ab2d4b6caa8df36ac09782}} 
+\index{user\_api@{user\_api}!sso@{sso}}
+\index{sso@{sso}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{sso}{sso}}
+{\footnotesize\ttfamily user\+\_\+api.\+sso}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \mbox{\hyperlink{namespaceuser__api_a5c9a6e2b62b403b63f7163fd3cc7f67e}{SSOProvider}}(}
+\DoxyCodeLine{2     client\_id=\textcolor{stringliteral}{"{}c393d763-\/6d21-\/4f25-\/9e64-\/857b6822336c"{}},}
+\DoxyCodeLine{3     client\_secret=\textcolor{stringliteral}{"{}secret"{}},}
+\DoxyCodeLine{4     redirect\_uri=\textcolor{stringliteral}{"{}http://127.0.0.1:9001/api/v1/user/callback"{}},}
+\DoxyCodeLine{5     allow\_insecure\_http=\textcolor{keyword}{True},}
+\DoxyCodeLine{6     scope=[\textcolor{stringliteral}{"{}openid"{}}],}
+\DoxyCodeLine{7     )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceuser__api_a5c9a6e2b62b403b63f7163fd3cc7f67e}\label{namespaceuser__api_a5c9a6e2b62b403b63f7163fd3cc7f67e}} 
+\index{user\_api@{user\_api}!SSOProvider@{SSOProvider}}
+\index{SSOProvider@{SSOProvider}!user\_api@{user\_api}}
+\doxysubsubsection{\texorpdfstring{SSOProvider}{SSOProvider}}
+{\footnotesize\ttfamily user\+\_\+api.\+SSOProvider = create\+\_\+provider(name=\char`\"{}oidc\char`\"{}, discovery\+\_\+document=\mbox{\hyperlink{namespaceuser__api_ad3d2b8fd5f7414a168faf292f57a8f0b}{discovery}})}
+

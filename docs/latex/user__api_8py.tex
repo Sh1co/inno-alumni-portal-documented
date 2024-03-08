@@ -1,0 +1,51 @@
+\hypertarget{user__api_8py}{}\doxysection{app/api/user\+\_\+api.py File Reference}
+\label{user__api_8py}\index{app/api/user\_api.py@{app/api/user\_api.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceuser__api}{user\+\_\+api}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a6e37fb118dafa58c1ec436d82ae24449}{user\+\_\+api.\+login\+\_\+alumni}} (OAuth2\+Password\+Request\+Form user\+\_\+cred=Depends())
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a4b9575cfcf23bbb562465d33ced5508d}{user\+\_\+api.\+create\+\_\+alumni\+\_\+account}} (\mbox{\hyperlink{classschemas_1_1SignUpUser}{schemas.\+Sign\+Up\+User}} user\+\_\+to\+\_\+create)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_ae5257a830fabe8cfe5a21f6cdacc3d11}{user\+\_\+api.\+create\+\_\+admin\+\_\+account}} (\mbox{\hyperlink{classschemas_1_1CreateAdminUser}{schemas.\+Create\+Admin\+User}} admin)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_af9254b716524f4282f67a81a1c80ff03}{user\+\_\+api.\+update\+\_\+alumni\+\_\+account}} (\mbox{\hyperlink{classschemas_1_1UpdateUser}{schemas.\+Update\+User}} up\+\_\+user, \mbox{\hyperlink{classschemas_1_1InternalUser}{schemas.\+Internal\+User}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a69d39ebf86b767fe002315bd47f58083}{user\+\_\+api.\+update\+\_\+password}} (\mbox{\hyperlink{classschemas_1_1UpdateUserPassword}{schemas.\+Update\+User\+Password}} pass\+\_\+info, \mbox{\hyperlink{classschemas_1_1UserWithPassword}{schemas.\+User\+With\+Password}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a46a1448d9a92bbea05000562c0e05426}{user\+\_\+api.\+get\+\_\+current\+\_\+alumni}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a66ae39eba33a63b6b3e2628a9469ba67}{user\+\_\+api.\+get\+\_\+all\+\_\+registered\+\_\+alumni}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a9e9fd4db700d2afd451c5f1796a7a1b2}{user\+\_\+api.\+forgot\+\_\+password}} (str university\+\_\+email, Background\+Tasks background\+\_\+tasks)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a525ec20dcd90b5767aff7054753c2e7a}{user\+\_\+api.\+update\+\_\+password}} (user\+\_\+info)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a326123c0611612fca1813123beb50e7b}{user\+\_\+api.\+verify\+\_\+account}} (str university\+\_\+email, Background\+Tasks background\+\_\+tasks)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a0bf74a123e6320e9772a024398bfb4d0}{user\+\_\+api.\+confirm\+\_\+verification}} (\mbox{\hyperlink{classschemas_1_1VerificationCode}{schemas.\+Verification\+Code}} verify)
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a98d88fc5c563a42d18382fe7713a9e56}{user\+\_\+api.\+login\+\_\+with\+\_\+sso}} ()
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a0f2e0b5db0405c5a0059f798d7373f4d}{user\+\_\+api.\+token\+\_\+callback\+\_\+with\+\_\+sso}} ()
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a621b83baf996324b93db4fe59253e4f4}{user\+\_\+api.\+user\+\_\+callback\+\_\+with\+\_\+sso}} ()
+\item 
+def \mbox{\hyperlink{namespaceuser__api_a3cc2525787b23b00f7015246383fecb7}{user\+\_\+api.\+authentication\+\_\+callback\+\_\+with\+\_\+sso}} (Request request)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceuser__api_a6c0e3038d3f38bb3c78858f7f36b388f}{user\+\_\+api.\+router}} = APIRouter(tags=\mbox{[}\char`\"{}User Authentication\char`\"{}\mbox{]}, prefix=\char`\"{}/user\char`\"{})
+\item 
+dictionary \mbox{\hyperlink{namespaceuser__api_ad3d2b8fd5f7414a168faf292f57a8f0b}{user\+\_\+api.\+discovery}}
+\item 
+\mbox{\hyperlink{namespaceuser__api_a5c9a6e2b62b403b63f7163fd3cc7f67e}{user\+\_\+api.\+SSOProvider}} = create\+\_\+provider(name=\char`\"{}oidc\char`\"{}, discovery\+\_\+document=discovery)
+\item 
+\mbox{\hyperlink{namespaceuser__api_a760e22c2f6ab2d4b6caa8df36ac09782}{user\+\_\+api.\+sso}}
+\end{DoxyCompactItemize}

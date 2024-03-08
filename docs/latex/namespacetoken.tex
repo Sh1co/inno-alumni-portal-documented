@@ -1,0 +1,62 @@
+\hypertarget{namespacetoken}{}\doxysection{token Namespace Reference}
+\label{namespacetoken}\index{token@{token}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoken_af9903fa8c8ace389a5162ce6eaa562cc}{create\+\_\+access\+\_\+token}} (dict data, Optional\mbox{[}timedelta\mbox{]} expires\+\_\+delta=None)
+\item 
+def \mbox{\hyperlink{namespacetoken_a07ea016ca57483155fba960a7cd5e094}{verify\+\_\+access\+\_\+token}} (str token, credentials\+\_\+exception)
+\item 
+def \mbox{\hyperlink{namespacetoken_a7383e1f3ecf452586b4f27b859f01177}{generate\+\_\+user\+\_\+verification\+\_\+code}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetoken_a19c1c799e08f2b283963a331b289d7ed}{SECRET\+\_\+\+KEY}} = settings.\+secret\+\_\+key
+\item 
+\mbox{\hyperlink{namespacetoken_a9aa53f315583e71ef61c5f0e176c1073}{ALGORITHM}} = settings.\+algorithm
+\item 
+\mbox{\hyperlink{namespacetoken_a9c9181b1a9e4083dbcc33357c163ca2a}{ACCESS\+\_\+\+TOKEN\+\_\+\+EXPIRE\+\_\+\+MINUTES}} = int(settings.\+access\+\_\+token\+\_\+expire\+\_\+minutes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoken_af9903fa8c8ace389a5162ce6eaa562cc}\label{namespacetoken_af9903fa8c8ace389a5162ce6eaa562cc}} 
+\index{token@{token}!create\_access\_token@{create\_access\_token}}
+\index{create\_access\_token@{create\_access\_token}!token@{token}}
+\doxysubsubsection{\texorpdfstring{create\_access\_token()}{create\_access\_token()}}
+{\footnotesize\ttfamily def token.\+create\+\_\+access\+\_\+token (\begin{DoxyParamCaption}\item[{dict}]{data,  }\item[{Optional\mbox{[}timedelta\mbox{]} }]{expires\+\_\+delta = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacetoken_a7383e1f3ecf452586b4f27b859f01177}\label{namespacetoken_a7383e1f3ecf452586b4f27b859f01177}} 
+\index{token@{token}!generate\_user\_verification\_code@{generate\_user\_verification\_code}}
+\index{generate\_user\_verification\_code@{generate\_user\_verification\_code}!token@{token}}
+\doxysubsubsection{\texorpdfstring{generate\_user\_verification\_code()}{generate\_user\_verification\_code()}}
+{\footnotesize\ttfamily def token.\+generate\+\_\+user\+\_\+verification\+\_\+code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacetoken_a07ea016ca57483155fba960a7cd5e094}\label{namespacetoken_a07ea016ca57483155fba960a7cd5e094}} 
+\index{token@{token}!verify\_access\_token@{verify\_access\_token}}
+\index{verify\_access\_token@{verify\_access\_token}!token@{token}}
+\doxysubsubsection{\texorpdfstring{verify\_access\_token()}{verify\_access\_token()}}
+{\footnotesize\ttfamily def token.\+verify\+\_\+access\+\_\+token (\begin{DoxyParamCaption}\item[{str}]{token,  }\item[{}]{credentials\+\_\+exception }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetoken_a9c9181b1a9e4083dbcc33357c163ca2a}\label{namespacetoken_a9c9181b1a9e4083dbcc33357c163ca2a}} 
+\index{token@{token}!ACCESS\_TOKEN\_EXPIRE\_MINUTES@{ACCESS\_TOKEN\_EXPIRE\_MINUTES}}
+\index{ACCESS\_TOKEN\_EXPIRE\_MINUTES@{ACCESS\_TOKEN\_EXPIRE\_MINUTES}!token@{token}}
+\doxysubsubsection{\texorpdfstring{ACCESS\_TOKEN\_EXPIRE\_MINUTES}{ACCESS\_TOKEN\_EXPIRE\_MINUTES}}
+{\footnotesize\ttfamily token.\+ACCESS\+\_\+\+TOKEN\+\_\+\+EXPIRE\+\_\+\+MINUTES = int(settings.\+access\+\_\+token\+\_\+expire\+\_\+minutes)}
+
+\mbox{\Hypertarget{namespacetoken_a9aa53f315583e71ef61c5f0e176c1073}\label{namespacetoken_a9aa53f315583e71ef61c5f0e176c1073}} 
+\index{token@{token}!ALGORITHM@{ALGORITHM}}
+\index{ALGORITHM@{ALGORITHM}!token@{token}}
+\doxysubsubsection{\texorpdfstring{ALGORITHM}{ALGORITHM}}
+{\footnotesize\ttfamily token.\+ALGORITHM = settings.\+algorithm}
+
+\mbox{\Hypertarget{namespacetoken_a19c1c799e08f2b283963a331b289d7ed}\label{namespacetoken_a19c1c799e08f2b283963a331b289d7ed}} 
+\index{token@{token}!SECRET\_KEY@{SECRET\_KEY}}
+\index{SECRET\_KEY@{SECRET\_KEY}!token@{token}}
+\doxysubsubsection{\texorpdfstring{SECRET\_KEY}{SECRET\_KEY}}
+{\footnotesize\ttfamily token.\+SECRET\+\_\+\+KEY = settings.\+secret\+\_\+key}
+

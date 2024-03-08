@@ -1,0 +1,49 @@
+\hypertarget{namespaceemail__handler}{}\doxysection{email\+\_\+handler Namespace Reference}
+\label{namespaceemail__handler}\index{email\_handler@{email\_handler}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceemail__handler_ab0ef0c823bd57cb7f6668377e91f4ec0}{send\+\_\+email}} (Background\+Tasks background\+\_\+tasks, str subject, str email\+\_\+to, dict body, template\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceemail__handler_a5b5f884c6f91917311c54675e18a2453}{config}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceemail__handler_ab0ef0c823bd57cb7f6668377e91f4ec0}\label{namespaceemail__handler_ab0ef0c823bd57cb7f6668377e91f4ec0}} 
+\index{email\_handler@{email\_handler}!send\_email@{send\_email}}
+\index{send\_email@{send\_email}!email\_handler@{email\_handler}}
+\doxysubsubsection{\texorpdfstring{send\_email()}{send\_email()}}
+{\footnotesize\ttfamily def email\+\_\+handler.\+send\+\_\+email (\begin{DoxyParamCaption}\item[{Background\+Tasks}]{background\+\_\+tasks,  }\item[{str}]{subject,  }\item[{str}]{email\+\_\+to,  }\item[{dict}]{body,  }\item[{}]{template\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceemail__handler_a5b5f884c6f91917311c54675e18a2453}\label{namespaceemail__handler_a5b5f884c6f91917311c54675e18a2453}} 
+\index{email\_handler@{email\_handler}!config@{config}}
+\index{config@{config}!email\_handler@{email\_handler}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily email\+\_\+handler.\+config}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  ConnectionConfig(}
+\DoxyCodeLine{2     MAIL\_USERNAME=settings.mail\_username,}
+\DoxyCodeLine{3     MAIL\_PASSWORD=settings.mail\_password,}
+\DoxyCodeLine{4     MAIL\_FROM=settings.mail\_from,}
+\DoxyCodeLine{5     MAIL\_PORT=int(settings.mail\_port),}
+\DoxyCodeLine{6     MAIL\_SERVER=settings.mail\_server,}
+\DoxyCodeLine{7     MAIL\_FROM\_NAME=settings.mail\_from\_name,}
+\DoxyCodeLine{8     MAIL\_STARTTLS = \textcolor{keyword}{True},}
+\DoxyCodeLine{9     MAIL\_SSL\_TLS = \textcolor{keyword}{False},}
+\DoxyCodeLine{10     \textcolor{comment}{\# MAIL\_TLS=True,}}
+\DoxyCodeLine{11     \textcolor{comment}{\# MAIL\_SSL=False,}}
+\DoxyCodeLine{12     \textcolor{comment}{\# USE\_CREDENTIALS=True,}}
+\DoxyCodeLine{13     \textcolor{comment}{\# VALIDATE\_CERTS = True,}}
+\DoxyCodeLine{14     TEMPLATE\_FOLDER= Path(\_\_file\_\_).parent.parent / \textcolor{stringliteral}{'templates'}}
+\DoxyCodeLine{15 )}
+
+\end{DoxyCode}

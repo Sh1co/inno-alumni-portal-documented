@@ -1,0 +1,137 @@
+\hypertarget{namespacecore__handlers}{}\doxysection{core\+\_\+handlers Namespace Reference}
+\label{namespacecore__handlers}\index{core\_handlers@{core\_handlers}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacecore__handlers_ad6d89633d38bcdd274d6dc9ae63914cb}{log}} (module, message)
+\item 
+def \mbox{\hyperlink{namespacecore__handlers_a4c41339446ce6a5afcf8a9c88984d992}{attach\+\_\+core\+\_\+module}} ()
+\item 
+def \mbox{\hyperlink{namespacecore__handlers_a3e99d555b4634afad2112b6afb9ed0a0}{compose\+\_\+attached\+\_\+modules}} (set\+\_\+proxy=False)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacecore__handlers_a0386df7027b6fda3b010fe3b9bf4117d}{MODULE\+\_\+\+NAME}} = \char`\"{}core\char`\"{}
+\item 
+\mbox{\hyperlink{namespacecore__handlers_a0c379ff07927efd989e3849e790b2dd9}{bot}} = telebot.\+Tele\+Bot(token=\mbox{\hyperlink{namespacedata_a979e0e7d59d5110b3d3dc9283a5a7da7}{data.\+TOKEN}})
+\item 
+\mbox{\hyperlink{namespacecore__handlers_a876007edfc973facbbd0ab26b064fcc6}{main\+\_\+markup}} = telebot.\+types.\+Reply\+Keyboard\+Markup(True)
+\item 
+list \mbox{\hyperlink{namespacecore__handlers_ab85cff63a96bffd1f03a95a89be69a7a}{commands}}
+\item 
+\mbox{\hyperlink{namespacecore__handlers_acd519e3810f9a009f4acd383c44608c5}{logger}} = logging.\+get\+Logger(\mbox{\hyperlink{namespacedata_a154da8fa4780ca0f90e641b06f0468ac}{data.\+LOG\+\_\+\+NAME}})
+\item 
+\mbox{\hyperlink{namespacecore__handlers_a7ca36927d57e48798d6c51014f16b6ce}{handler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacecore__handlers_a4c41339446ce6a5afcf8a9c88984d992}\label{namespacecore__handlers_a4c41339446ce6a5afcf8a9c88984d992}} 
+\index{core\_handlers@{core\_handlers}!attach\_core\_module@{attach\_core\_module}}
+\index{attach\_core\_module@{attach\_core\_module}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{attach\_core\_module()}{attach\_core\_module()}}
+{\footnotesize\ttfamily def core\+\_\+handlers.\+attach\+\_\+core\+\_\+module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Attach core functionality to the bot.
+
+Returns:
+    None
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacecore__handlers_a3e99d555b4634afad2112b6afb9ed0a0}\label{namespacecore__handlers_a3e99d555b4634afad2112b6afb9ed0a0}} 
+\index{core\_handlers@{core\_handlers}!compose\_attached\_modules@{compose\_attached\_modules}}
+\index{compose\_attached\_modules@{compose\_attached\_modules}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{compose\_attached\_modules()}{compose\_attached\_modules()}}
+{\footnotesize\ttfamily def core\+\_\+handlers.\+compose\+\_\+attached\+\_\+modules (\begin{DoxyParamCaption}\item[{}]{set\+\_\+proxy = {\ttfamily False} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Compose attached modules to the bot.
+
+Args:
+    set_proxy (bool): Flag to set proxy configuration.
+
+Returns:
+    None
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacecore__handlers_ad6d89633d38bcdd274d6dc9ae63914cb}\label{namespacecore__handlers_ad6d89633d38bcdd274d6dc9ae63914cb}} 
+\index{core\_handlers@{core\_handlers}!log@{log}}
+\index{log@{log}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily def core\+\_\+handlers.\+log (\begin{DoxyParamCaption}\item[{}]{module,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Log user actions and messages.
+
+Args:
+    module (str): The name of the module.
+    message (telebot.types.Message): The message received.
+
+Returns:
+    None
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecore__handlers_a0c379ff07927efd989e3849e790b2dd9}\label{namespacecore__handlers_a0c379ff07927efd989e3849e790b2dd9}} 
+\index{core\_handlers@{core\_handlers}!bot@{bot}}
+\index{bot@{bot}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{bot}{bot}}
+{\footnotesize\ttfamily core\+\_\+handlers.\+bot = telebot.\+Tele\+Bot(token=\mbox{\hyperlink{namespacedata_a979e0e7d59d5110b3d3dc9283a5a7da7}{data.\+TOKEN}})}
+
+\mbox{\Hypertarget{namespacecore__handlers_ab85cff63a96bffd1f03a95a89be69a7a}\label{namespacecore__handlers_ab85cff63a96bffd1f03a95a89be69a7a}} 
+\index{core\_handlers@{core\_handlers}!commands@{commands}}
+\index{commands@{commands}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{commands}{commands}}
+{\footnotesize\ttfamily list core\+\_\+handlers.\+commands}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2     telebot.types.BotCommand(\textcolor{stringliteral}{"{}start"{}}, \textcolor{stringliteral}{"{}starts InnoAlumni bot"{}}),}
+\DoxyCodeLine{3     telebot.types.BotCommand(}
+\DoxyCodeLine{4         \textcolor{stringliteral}{"{}profile"{}}, \textcolor{stringliteral}{"{}View my profile information and status of requests"{}}),}
+\DoxyCodeLine{5     telebot.types.BotCommand(\textcolor{stringliteral}{"{}request\_elective"{}}, \textcolor{stringliteral}{"{}Request an elective course"{}}),}
+\DoxyCodeLine{6     telebot.types.BotCommand(}
+\DoxyCodeLine{7         \textcolor{stringliteral}{"{}clear\_electives"{}}, \textcolor{stringliteral}{"{}Cancel all pending request for electives"{}}),}
+\DoxyCodeLine{8     telebot.types.BotCommand(}
+\DoxyCodeLine{9         \textcolor{stringliteral}{"{}request\_pass"{}}, \textcolor{stringliteral}{"{}Request guest entrance passes on arrival to IU"{}}),}
+\DoxyCodeLine{10     telebot.types.BotCommand(}
+\DoxyCodeLine{11         \textcolor{stringliteral}{"{}cancel\_pass"{}}, \textcolor{stringliteral}{"{}Cancel pass request"{}}),}
+\DoxyCodeLine{12     telebot.types.BotCommand(}
+\DoxyCodeLine{13         \textcolor{stringliteral}{"{}donate"{}}, \textcolor{stringliteral}{"{}Get a link you can use to securely donate to Alumni Club"{}}),}
+\DoxyCodeLine{14     telebot.types.BotCommand(}
+\DoxyCodeLine{15         \textcolor{stringliteral}{"{}volunteer"{}}, \textcolor{stringliteral}{"{}Get urgent access to the university campus"{}}),}
+\DoxyCodeLine{16     telebot.types.BotCommand(}
+\DoxyCodeLine{17         \textcolor{stringliteral}{"{}feedback"{}}, \textcolor{stringliteral}{"{}Suggest improvements and share bugs"{}}),}
+\DoxyCodeLine{18     telebot.types.BotCommand(\textcolor{stringliteral}{"{}help"{}}, \textcolor{stringliteral}{"{}Overview of bot commands"{}}),}
+\DoxyCodeLine{19 ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore__handlers_a7ca36927d57e48798d6c51014f16b6ce}\label{namespacecore__handlers_a7ca36927d57e48798d6c51014f16b6ce}} 
+\index{core\_handlers@{core\_handlers}!handler@{handler}}
+\index{handler@{handler}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{handler}{handler}}
+{\footnotesize\ttfamily core\+\_\+handlers.\+handler}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  RotatingFileHandler(data.LOG\_FILE\_NAME, maxBytes=data.LOG\_MAX\_SIZE\_BYTES,}
+\DoxyCodeLine{2                               backupCount=data.LOG\_BACKUP\_COUNT)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore__handlers_acd519e3810f9a009f4acd383c44608c5}\label{namespacecore__handlers_acd519e3810f9a009f4acd383c44608c5}} 
+\index{core\_handlers@{core\_handlers}!logger@{logger}}
+\index{logger@{logger}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily core\+\_\+handlers.\+logger = logging.\+get\+Logger(\mbox{\hyperlink{namespacedata_a154da8fa4780ca0f90e641b06f0468ac}{data.\+LOG\+\_\+\+NAME}})}
+
+\mbox{\Hypertarget{namespacecore__handlers_a876007edfc973facbbd0ab26b064fcc6}\label{namespacecore__handlers_a876007edfc973facbbd0ab26b064fcc6}} 
+\index{core\_handlers@{core\_handlers}!main\_markup@{main\_markup}}
+\index{main\_markup@{main\_markup}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{main\_markup}{main\_markup}}
+{\footnotesize\ttfamily core\+\_\+handlers.\+main\+\_\+markup = telebot.\+types.\+Reply\+Keyboard\+Markup(True)}
+
+\mbox{\Hypertarget{namespacecore__handlers_a0386df7027b6fda3b010fe3b9bf4117d}\label{namespacecore__handlers_a0386df7027b6fda3b010fe3b9bf4117d}} 
+\index{core\_handlers@{core\_handlers}!MODULE\_NAME@{MODULE\_NAME}}
+\index{MODULE\_NAME@{MODULE\_NAME}!core\_handlers@{core\_handlers}}
+\doxysubsubsection{\texorpdfstring{MODULE\_NAME}{MODULE\_NAME}}
+{\footnotesize\ttfamily string core\+\_\+handlers.\+MODULE\+\_\+\+NAME = \char`\"{}core\char`\"{}}
+

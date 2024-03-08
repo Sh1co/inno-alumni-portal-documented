@@ -1,0 +1,23 @@
+\hypertarget{donation__api_8py}{}\doxysection{app/api/donation\+\_\+api.py File Reference}
+\label{donation__api_8py}\index{app/api/donation\_api.py@{app/api/donation\_api.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacedonation__api}{donation\+\_\+api}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacedonation__api_ae2bf64e24c9d2a98227355bbbd89dbbe}{donation\+\_\+api.\+get\+\_\+all\+\_\+donations}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacedonation__api_a6482f7604eee1656203ea687538e5c3f}{donation\+\_\+api.\+make\+\_\+donation}} (\mbox{\hyperlink{classschemas_1_1MakeDonation}{schemas.\+Make\+Donation}} donation, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacedonation__api_afbb05fa87e497410f1adafa9b374266e}{donation\+\_\+api.\+get\+\_\+admin\+\_\+donation\+\_\+message}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacedonation__api_a092892230dbf3f8ecc0058ecfb9717fd}{donation\+\_\+api.\+update\+\_\+admin\+\_\+donation\+\_\+message}} (\mbox{\hyperlink{classschemas_1_1MakeDonation}{schemas.\+Make\+Donation}} donation, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedonation__api_ae133723db3e718312ca76ff8be79ec04}{donation\+\_\+api.\+router}} = APIRouter(tags=\mbox{[}\char`\"{}Manage Donations\char`\"{}\mbox{]}, prefix=\char`\"{}/donation\char`\"{})
+\end{DoxyCompactItemize}

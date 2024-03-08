@@ -1,0 +1,37 @@
+\hypertarget{elective__course__api_8py}{}\doxysection{app/api/elective\+\_\+course\+\_\+api.py File Reference}
+\label{elective__course__api_8py}\index{app/api/elective\_course\_api.py@{app/api/elective\_course\_api.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceelective__course__api}{elective\+\_\+course\+\_\+api}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_abc0c41aeebf5e8ccef1f07536bb1345d}{elective\+\_\+course\+\_\+api.\+get\+\_\+all\+\_\+elective\+\_\+courses}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a12189a07682d8317f045089efedb5b47}{elective\+\_\+course\+\_\+api.\+get\+\_\+all\+\_\+elective\+\_\+courses\+\_\+by\+\_\+admin}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_aae7648e475b46257c1d6611da99c09a3}{elective\+\_\+course\+\_\+api.\+get\+\_\+booked\+\_\+elective\+\_\+courses}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a114d0e52b41640d07e08e8df6cd69a40}{elective\+\_\+course\+\_\+api.\+get\+\_\+all\+\_\+elective\+\_\+requests}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a09e3efc2e88074c42cd9a9c40a8a0057}{elective\+\_\+course\+\_\+api.\+create\+\_\+elective\+\_\+course}} (\mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}} course, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a6c18b1a16ccc4c48dd370299e24e19ef}{elective\+\_\+course\+\_\+api.\+create\+\_\+bulk\+\_\+elective\+\_\+courses}} (List\mbox{[}\mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}}\mbox{]} courses, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a33b294ceecd6998a138d57578e284a96}{elective\+\_\+course\+\_\+api.\+update\+\_\+elective\+\_\+course}} (str course\+\_\+id, \mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}} course, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a468a4f20fbafd02f67edde2df32bae5d}{elective\+\_\+course\+\_\+api.\+delete\+\_\+elective\+\_\+course}} (str course\+\_\+id, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_af8ed5516b3072b9858d074d427ad7499}{elective\+\_\+course\+\_\+api.\+disconnect\+\_\+elective\+\_\+course\+\_\+request}} (str course\+\_\+request\+\_\+id, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_ad29dc801ab040da2e4d0303c0fcf3173}{elective\+\_\+course\+\_\+api.\+request\+\_\+elective\+\_\+course}} (str course\+\_\+id, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_ae454b7be6755a47091c8874c76ff6fd9}{elective\+\_\+course\+\_\+api.\+update\+\_\+elective\+\_\+request}} (str request\+\_\+id, \mbox{\hyperlink{classschemas_1_1UpdateRequest}{schemas.\+Update\+Request}} to\+\_\+update, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceelective__course__api_a9c12752b573ef5e4b5adf2b4c32ef56f}{elective\+\_\+course\+\_\+api.\+router}} = APIRouter(tags=\mbox{[}\char`\"{}Elective Courses\char`\"{}\mbox{]}, prefix=\char`\"{}/elective\+\_\+course\char`\"{})
+\end{DoxyCompactItemize}

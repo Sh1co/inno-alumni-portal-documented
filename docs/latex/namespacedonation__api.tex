@@ -1,0 +1,96 @@
+\hypertarget{namespacedonation__api}{}\doxysection{donation\+\_\+api Namespace Reference}
+\label{namespacedonation__api}\index{donation\_api@{donation\_api}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacedonation__api_ae2bf64e24c9d2a98227355bbbd89dbbe}{get\+\_\+all\+\_\+donations}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacedonation__api_a6482f7604eee1656203ea687538e5c3f}{make\+\_\+donation}} (\mbox{\hyperlink{classschemas_1_1MakeDonation}{schemas.\+Make\+Donation}} donation, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacedonation__api_afbb05fa87e497410f1adafa9b374266e}{get\+\_\+admin\+\_\+donation\+\_\+message}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacedonation__api_a092892230dbf3f8ecc0058ecfb9717fd}{update\+\_\+admin\+\_\+donation\+\_\+message}} (\mbox{\hyperlink{classschemas_1_1MakeDonation}{schemas.\+Make\+Donation}} donation, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedonation__api_ae133723db3e718312ca76ff8be79ec04}{router}} = APIRouter(tags=\mbox{[}\char`\"{}Manage Donations\char`\"{}\mbox{]}, prefix=\char`\"{}/donation\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacedonation__api_afbb05fa87e497410f1adafa9b374266e}\label{namespacedonation__api_afbb05fa87e497410f1adafa9b374266e}} 
+\index{donation\_api@{donation\_api}!get\_admin\_donation\_message@{get\_admin\_donation\_message}}
+\index{get\_admin\_donation\_message@{get\_admin\_donation\_message}!donation\_api@{donation\_api}}
+\doxysubsubsection{\texorpdfstring{get\_admin\_donation\_message()}{get\_admin\_donation\_message()}}
+{\footnotesize\ttfamily def donation\+\_\+api.\+get\+\_\+admin\+\_\+donation\+\_\+message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieve the latest admin donation message.
+
+This endpoint fetches the most recent donation message set by an admin.
+
+Args:
+    cur_user: The current user (admin) obtained via dependency injection, used to validate access.
+
+Returns:
+    The most recent admin donation message.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacedonation__api_ae2bf64e24c9d2a98227355bbbd89dbbe}\label{namespacedonation__api_ae2bf64e24c9d2a98227355bbbd89dbbe}} 
+\index{donation\_api@{donation\_api}!get\_all\_donations@{get\_all\_donations}}
+\index{get\_all\_donations@{get\_all\_donations}!donation\_api@{donation\_api}}
+\doxysubsubsection{\texorpdfstring{get\_all\_donations()}{get\_all\_donations()}}
+{\footnotesize\ttfamily def donation\+\_\+api.\+get\+\_\+all\+\_\+donations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieve all donations made by alumni.
+
+This endpoint retrieves all donations that have been made by alumni, sorted by the creation date in descending order.
+
+Args:
+    cur_user: The current user obtained via dependency injection, which ensures that the user is logged in.
+
+Returns:
+    A list of donation objects that matches the criteria of being made by alumni.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacedonation__api_a6482f7604eee1656203ea687538e5c3f}\label{namespacedonation__api_a6482f7604eee1656203ea687538e5c3f}} 
+\index{donation\_api@{donation\_api}!make\_donation@{make\_donation}}
+\index{make\_donation@{make\_donation}!donation\_api@{donation\_api}}
+\doxysubsubsection{\texorpdfstring{make\_donation()}{make\_donation()}}
+{\footnotesize\ttfamily def donation\+\_\+api.\+make\+\_\+donation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1MakeDonation}{schemas.\+Make\+Donation}}}]{donation,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Create a new donation.
+
+This endpoint allows a user to make a new donation, capturing the donation message and associating it with the user.
+
+Args:
+    donation: The donation details received from the request body.
+    cur_user: The current user making the donation, obtained via dependency injection.
+
+Returns:
+    A success message along with the created donation object.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacedonation__api_a092892230dbf3f8ecc0058ecfb9717fd}\label{namespacedonation__api_a092892230dbf3f8ecc0058ecfb9717fd}} 
+\index{donation\_api@{donation\_api}!update\_admin\_donation\_message@{update\_admin\_donation\_message}}
+\index{update\_admin\_donation\_message@{update\_admin\_donation\_message}!donation\_api@{donation\_api}}
+\doxysubsubsection{\texorpdfstring{update\_admin\_donation\_message()}{update\_admin\_donation\_message()}}
+{\footnotesize\ttfamily def donation\+\_\+api.\+update\+\_\+admin\+\_\+donation\+\_\+message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1MakeDonation}{schemas.\+Make\+Donation}}}]{donation,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Update or create an admin donation message.
+
+This endpoint allows updating an existing admin donation message or creating a new one if it doesn't exist.
+
+Args:
+    donation: The new donation message to be set or updated.
+    cur_user: The current admin user making the update, obtained via dependency injection.
+
+Returns:
+    A success message along with the updated or created admin donation message object.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedonation__api_ae133723db3e718312ca76ff8be79ec04}\label{namespacedonation__api_ae133723db3e718312ca76ff8be79ec04}} 
+\index{donation\_api@{donation\_api}!router@{router}}
+\index{router@{router}!donation\_api@{donation\_api}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily donation\+\_\+api.\+router = APIRouter(tags=\mbox{[}\char`\"{}Manage Donations\char`\"{}\mbox{]}, prefix=\char`\"{}/donation\char`\"{})}
+

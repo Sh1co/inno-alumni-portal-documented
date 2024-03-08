@@ -1,0 +1,106 @@
+\hypertarget{namespacepass__request__api}{}\doxysection{pass\+\_\+request\+\_\+api Namespace Reference}
+\label{namespacepass__request__api}\index{pass\_request\_api@{pass\_request\_api}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_a8b2fe841ecef9aa49661952e742cb946}{get\+\_\+all\+\_\+pass\+\_\+requests}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_afa7745c2d1ef169d409f070528acafb8}{get\+\_\+all\+\_\+pass\+\_\+requests\+\_\+by\+\_\+admin}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_a41d68ec90cee9a0f2b55604fb13faeaf}{update\+\_\+pass\+\_\+request}} (str request\+\_\+id, \mbox{\hyperlink{classschemas_1_1UpdateRequest}{schemas.\+Update\+Request}} to\+\_\+update, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_a82a77ad8b912af8733861c2f4d331427}{order\+\_\+pass}} (\mbox{\hyperlink{classschemas_1_1OrderPassRequest}{schemas.\+Order\+Pass\+Request}} pass\+\_\+request, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespacepass__request__api_acd2ba70a956f93c30ae805b839a4cdd2}{disconnect\+\_\+pass\+\_\+request}} (str pass\+\_\+request\+\_\+id, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacepass__request__api_a49da07a30bbdff04e0641bfbb22ffbda}{router}} = APIRouter(tags=\mbox{[}\char`\"{}Obtain Pass\char`\"{}\mbox{]}, prefix=\char`\"{}/request\+\_\+pass\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacepass__request__api_acd2ba70a956f93c30ae805b839a4cdd2}\label{namespacepass__request__api_acd2ba70a956f93c30ae805b839a4cdd2}} 
+\index{pass\_request\_api@{pass\_request\_api}!disconnect\_pass\_request@{disconnect\_pass\_request}}
+\index{disconnect\_pass\_request@{disconnect\_pass\_request}!pass\_request\_api@{pass\_request\_api}}
+\doxysubsubsection{\texorpdfstring{disconnect\_pass\_request()}{disconnect\_pass\_request()}}
+{\footnotesize\ttfamily def pass\+\_\+request\+\_\+api.\+disconnect\+\_\+pass\+\_\+request (\begin{DoxyParamCaption}\item[{str}]{pass\+\_\+request\+\_\+id,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Deletes a pass request based on the provided pass request ID.
+
+Args:
+    pass_request_id: The unique identifier of the pass request to be deleted.
+    cur_user: The current authenticated user attempting to delete the pass request.
+
+Returns:
+    The result of the delete operation.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacepass__request__api_a8b2fe841ecef9aa49661952e742cb946}\label{namespacepass__request__api_a8b2fe841ecef9aa49661952e742cb946}} 
+\index{pass\_request\_api@{pass\_request\_api}!get\_all\_pass\_requests@{get\_all\_pass\_requests}}
+\index{get\_all\_pass\_requests@{get\_all\_pass\_requests}!pass\_request\_api@{pass\_request\_api}}
+\doxysubsubsection{\texorpdfstring{get\_all\_pass\_requests()}{get\_all\_pass\_requests()}}
+{\footnotesize\ttfamily def pass\+\_\+request\+\_\+api.\+get\+\_\+all\+\_\+pass\+\_\+requests (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieves all pass requests made by the current user, ordered by the creation date in descending order.
+
+Args:
+    cur_user: The current authenticated user making the request.
+
+Returns:
+    A list of pass requests made by the current user.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacepass__request__api_afa7745c2d1ef169d409f070528acafb8}\label{namespacepass__request__api_afa7745c2d1ef169d409f070528acafb8}} 
+\index{pass\_request\_api@{pass\_request\_api}!get\_all\_pass\_requests\_by\_admin@{get\_all\_pass\_requests\_by\_admin}}
+\index{get\_all\_pass\_requests\_by\_admin@{get\_all\_pass\_requests\_by\_admin}!pass\_request\_api@{pass\_request\_api}}
+\doxysubsubsection{\texorpdfstring{get\_all\_pass\_requests\_by\_admin()}{get\_all\_pass\_requests\_by\_admin()}}
+{\footnotesize\ttfamily def pass\+\_\+request\+\_\+api.\+get\+\_\+all\+\_\+pass\+\_\+requests\+\_\+by\+\_\+admin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieves all pass requests from all users, intended for admin use. The requests include user information and are ordered by creation date in descending order.
+
+Args:
+    cur_user: The current authenticated user presumed to be an admin.
+
+Returns:
+    A list of all pass requests including user information.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacepass__request__api_a82a77ad8b912af8733861c2f4d331427}\label{namespacepass__request__api_a82a77ad8b912af8733861c2f4d331427}} 
+\index{pass\_request\_api@{pass\_request\_api}!order\_pass@{order\_pass}}
+\index{order\_pass@{order\_pass}!pass\_request\_api@{pass\_request\_api}}
+\doxysubsubsection{\texorpdfstring{order\_pass()}{order\_pass()}}
+{\footnotesize\ttfamily def pass\+\_\+request\+\_\+api.\+order\+\_\+pass (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1OrderPassRequest}{schemas.\+Order\+Pass\+Request}}}]{pass\+\_\+request,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Submits a new pass order request with optional guest information.
+
+Args:
+    pass_request: The pass request details, including description, requested date, and optional guests.
+    cur_user: The current authenticated user placing the pass order.
+
+Returns:
+    A success message along with the created pass order request details.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacepass__request__api_a41d68ec90cee9a0f2b55604fb13faeaf}\label{namespacepass__request__api_a41d68ec90cee9a0f2b55604fb13faeaf}} 
+\index{pass\_request\_api@{pass\_request\_api}!update\_pass\_request@{update\_pass\_request}}
+\index{update\_pass\_request@{update\_pass\_request}!pass\_request\_api@{pass\_request\_api}}
+\doxysubsubsection{\texorpdfstring{update\_pass\_request()}{update\_pass\_request()}}
+{\footnotesize\ttfamily def pass\+\_\+request\+\_\+api.\+update\+\_\+pass\+\_\+request (\begin{DoxyParamCaption}\item[{str}]{request\+\_\+id,  }\item[{\mbox{\hyperlink{classschemas_1_1UpdateRequest}{schemas.\+Update\+Request}}}]{to\+\_\+update,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Updates a specific pass request based on the provided request ID and update details.
+
+Args:
+    request_id: The unique identifier of the pass request to be updated.
+    to_update: An object containing the update details for the pass request.
+    cur_user: The current authenticated user making the update request.
+
+Returns:
+    The updated pass request.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacepass__request__api_a49da07a30bbdff04e0641bfbb22ffbda}\label{namespacepass__request__api_a49da07a30bbdff04e0641bfbb22ffbda}} 
+\index{pass\_request\_api@{pass\_request\_api}!router@{router}}
+\index{router@{router}!pass\_request\_api@{pass\_request\_api}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily pass\+\_\+request\+\_\+api.\+router = APIRouter(tags=\mbox{[}\char`\"{}Obtain Pass\char`\"{}\mbox{]}, prefix=\char`\"{}/request\+\_\+pass\char`\"{})}
+

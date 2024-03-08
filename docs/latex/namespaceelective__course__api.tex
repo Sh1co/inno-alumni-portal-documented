@@ -1,0 +1,210 @@
+\hypertarget{namespaceelective__course__api}{}\doxysection{elective\+\_\+course\+\_\+api Namespace Reference}
+\label{namespaceelective__course__api}\index{elective\_course\_api@{elective\_course\_api}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_abc0c41aeebf5e8ccef1f07536bb1345d}{get\+\_\+all\+\_\+elective\+\_\+courses}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a12189a07682d8317f045089efedb5b47}{get\+\_\+all\+\_\+elective\+\_\+courses\+\_\+by\+\_\+admin}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_aae7648e475b46257c1d6611da99c09a3}{get\+\_\+booked\+\_\+elective\+\_\+courses}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a114d0e52b41640d07e08e8df6cd69a40}{get\+\_\+all\+\_\+elective\+\_\+requests}} (\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a09e3efc2e88074c42cd9a9c40a8a0057}{create\+\_\+elective\+\_\+course}} (\mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}} course, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a6c18b1a16ccc4c48dd370299e24e19ef}{create\+\_\+bulk\+\_\+elective\+\_\+courses}} (List\mbox{[}\mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}}\mbox{]} courses, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a33b294ceecd6998a138d57578e284a96}{update\+\_\+elective\+\_\+course}} (str course\+\_\+id, \mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}} course, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_a468a4f20fbafd02f67edde2df32bae5d}{delete\+\_\+elective\+\_\+course}} (str course\+\_\+id, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_af8ed5516b3072b9858d074d427ad7499}{disconnect\+\_\+elective\+\_\+course\+\_\+request}} (str course\+\_\+request\+\_\+id, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_ad29dc801ab040da2e4d0303c0fcf3173}{request\+\_\+elective\+\_\+course}} (str course\+\_\+id, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\item 
+def \mbox{\hyperlink{namespaceelective__course__api_ae454b7be6755a47091c8874c76ff6fd9}{update\+\_\+elective\+\_\+request}} (str request\+\_\+id, \mbox{\hyperlink{classschemas_1_1UpdateRequest}{schemas.\+Update\+Request}} to\+\_\+update, \mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} cur\+\_\+user=Depends(get\+\_\+current\+\_\+user))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceelective__course__api_a9c12752b573ef5e4b5adf2b4c32ef56f}{router}} = APIRouter(tags=\mbox{[}\char`\"{}Elective Courses\char`\"{}\mbox{]}, prefix=\char`\"{}/elective\+\_\+course\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceelective__course__api_a6c18b1a16ccc4c48dd370299e24e19ef}\label{namespaceelective__course__api_a6c18b1a16ccc4c48dd370299e24e19ef}} 
+\index{elective\_course\_api@{elective\_course\_api}!create\_bulk\_elective\_courses@{create\_bulk\_elective\_courses}}
+\index{create\_bulk\_elective\_courses@{create\_bulk\_elective\_courses}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{create\_bulk\_elective\_courses()}{create\_bulk\_elective\_courses()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+create\+\_\+bulk\+\_\+elective\+\_\+courses (\begin{DoxyParamCaption}\item[{List\mbox{[}\mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}}\mbox{]}}]{courses,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Bulk creates elective courses.
+
+Args:
+    courses: A list of elective courses to be created.
+    cur_user: The current user, used for authentication.
+    
+Returns:
+    The number of elective courses added.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_a09e3efc2e88074c42cd9a9c40a8a0057}\label{namespaceelective__course__api_a09e3efc2e88074c42cd9a9c40a8a0057}} 
+\index{elective\_course\_api@{elective\_course\_api}!create\_elective\_course@{create\_elective\_course}}
+\index{create\_elective\_course@{create\_elective\_course}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{create\_elective\_course()}{create\_elective\_course()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+create\+\_\+elective\+\_\+course (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}}}]{course,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Creates a new elective course.
+
+Args:
+    course: The elective course data.
+    cur_user: The current user, used for authentication.
+    
+Returns:
+    The created elective course.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_a468a4f20fbafd02f67edde2df32bae5d}\label{namespaceelective__course__api_a468a4f20fbafd02f67edde2df32bae5d}} 
+\index{elective\_course\_api@{elective\_course\_api}!delete\_elective\_course@{delete\_elective\_course}}
+\index{delete\_elective\_course@{delete\_elective\_course}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{delete\_elective\_course()}{delete\_elective\_course()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+delete\+\_\+elective\+\_\+course (\begin{DoxyParamCaption}\item[{str}]{course\+\_\+id,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Deletes an elective course.
+
+Args:
+    course_id: The ID of the course to delete.
+    cur_user: The current user, used for authentication.
+    
+Returns:
+    The deleted elective course.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_af8ed5516b3072b9858d074d427ad7499}\label{namespaceelective__course__api_af8ed5516b3072b9858d074d427ad7499}} 
+\index{elective\_course\_api@{elective\_course\_api}!disconnect\_elective\_course\_request@{disconnect\_elective\_course\_request}}
+\index{disconnect\_elective\_course\_request@{disconnect\_elective\_course\_request}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{disconnect\_elective\_course\_request()}{disconnect\_elective\_course\_request()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+disconnect\+\_\+elective\+\_\+course\+\_\+request (\begin{DoxyParamCaption}\item[{str}]{course\+\_\+request\+\_\+id,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Deletes an elective course request.
+
+Args:
+    course_request_id: The ID of the course request to delete.
+    cur_user: The current user, used for authentication.
+    
+Returns:
+    The deletion result of the elective course request.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_abc0c41aeebf5e8ccef1f07536bb1345d}\label{namespaceelective__course__api_abc0c41aeebf5e8ccef1f07536bb1345d}} 
+\index{elective\_course\_api@{elective\_course\_api}!get\_all\_elective\_courses@{get\_all\_elective\_courses}}
+\index{get\_all\_elective\_courses@{get\_all\_elective\_courses}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{get\_all\_elective\_courses()}{get\_all\_elective\_courses()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+get\+\_\+all\+\_\+elective\+\_\+courses (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieves all elective courses that the current user has not yet booked.
+
+Args:
+    cur_user: The current user attempting to view the courses.
+    
+Returns:
+    A list of elective courses excluding those that the current user has already booked.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_a12189a07682d8317f045089efedb5b47}\label{namespaceelective__course__api_a12189a07682d8317f045089efedb5b47}} 
+\index{elective\_course\_api@{elective\_course\_api}!get\_all\_elective\_courses\_by\_admin@{get\_all\_elective\_courses\_by\_admin}}
+\index{get\_all\_elective\_courses\_by\_admin@{get\_all\_elective\_courses\_by\_admin}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{get\_all\_elective\_courses\_by\_admin()}{get\_all\_elective\_courses\_by\_admin()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+get\+\_\+all\+\_\+elective\+\_\+courses\+\_\+by\+\_\+admin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieves all elective courses, intended for admin use.
+
+Args:
+    cur_user: The current admin user.
+    
+Returns:
+    A list of all elective courses.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_a114d0e52b41640d07e08e8df6cd69a40}\label{namespaceelective__course__api_a114d0e52b41640d07e08e8df6cd69a40}} 
+\index{elective\_course\_api@{elective\_course\_api}!get\_all\_elective\_requests@{get\_all\_elective\_requests}}
+\index{get\_all\_elective\_requests@{get\_all\_elective\_requests}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{get\_all\_elective\_requests()}{get\_all\_elective\_requests()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+get\+\_\+all\+\_\+elective\+\_\+requests (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieves all elective course requests.
+
+Args:
+    cur_user: The current user, used for authentication.
+    
+Returns:
+    A list of all elective course requests, including course and user details.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_aae7648e475b46257c1d6611da99c09a3}\label{namespaceelective__course__api_aae7648e475b46257c1d6611da99c09a3}} 
+\index{elective\_course\_api@{elective\_course\_api}!get\_booked\_elective\_courses@{get\_booked\_elective\_courses}}
+\index{get\_booked\_elective\_courses@{get\_booked\_elective\_courses}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{get\_booked\_elective\_courses()}{get\_booked\_elective\_courses()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+get\+\_\+booked\+\_\+elective\+\_\+courses (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Retrieves all elective courses that the current user has booked.
+
+Args:
+    cur_user: The current user.
+    
+Returns:
+    A list of booked elective courses for the current user.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_ad29dc801ab040da2e4d0303c0fcf3173}\label{namespaceelective__course__api_ad29dc801ab040da2e4d0303c0fcf3173}} 
+\index{elective\_course\_api@{elective\_course\_api}!request\_elective\_course@{request\_elective\_course}}
+\index{request\_elective\_course@{request\_elective\_course}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{request\_elective\_course()}{request\_elective\_course()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+request\+\_\+elective\+\_\+course (\begin{DoxyParamCaption}\item[{str}]{course\+\_\+id,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Submits a request for an elective course.
+
+Args:
+    course_id: The ID of the elective course to request.
+    cur_user: The current user making the request.
+    
+Raises:
+    HTTPException: If the course does not exist or a request is already being processed.
+    
+Returns:
+    The created elective course request.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_a33b294ceecd6998a138d57578e284a96}\label{namespaceelective__course__api_a33b294ceecd6998a138d57578e284a96}} 
+\index{elective\_course\_api@{elective\_course\_api}!update\_elective\_course@{update\_elective\_course}}
+\index{update\_elective\_course@{update\_elective\_course}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{update\_elective\_course()}{update\_elective\_course()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+update\+\_\+elective\+\_\+course (\begin{DoxyParamCaption}\item[{str}]{course\+\_\+id,  }\item[{\mbox{\hyperlink{classschemas_1_1ElectiveCourse}{schemas.\+Elective\+Course}}}]{course,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Updates an existing elective course.
+
+Args:
+    course_id: The ID of the course to update.
+    course: The updated course data.
+    cur_user: The current user, used for authentication.
+    
+Returns:
+    The updated elective course.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceelective__course__api_ae454b7be6755a47091c8874c76ff6fd9}\label{namespaceelective__course__api_ae454b7be6755a47091c8874c76ff6fd9}} 
+\index{elective\_course\_api@{elective\_course\_api}!update\_elective\_request@{update\_elective\_request}}
+\index{update\_elective\_request@{update\_elective\_request}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{update\_elective\_request()}{update\_elective\_request()}}
+{\footnotesize\ttfamily def elective\+\_\+course\+\_\+api.\+update\+\_\+elective\+\_\+request (\begin{DoxyParamCaption}\item[{str}]{request\+\_\+id,  }\item[{\mbox{\hyperlink{classschemas_1_1UpdateRequest}{schemas.\+Update\+Request}}}]{to\+\_\+update,  }\item[{\mbox{\hyperlink{classschemas_1_1UserOutput}{schemas.\+User\+Output}} }]{cur\+\_\+user = {\ttfamily Depends(get\+\_\+current\+\_\+user)} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Updates an elective course request.
+
+Args:
+    request_id: The ID of the request to update.
+    to_update: The update details.
+    cur_user: The current user, used for authentication.
+    
+Returns:
+    The updated elective course request.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceelective__course__api_a9c12752b573ef5e4b5adf2b4c32ef56f}\label{namespaceelective__course__api_a9c12752b573ef5e4b5adf2b4c32ef56f}} 
+\index{elective\_course\_api@{elective\_course\_api}!router@{router}}
+\index{router@{router}!elective\_course\_api@{elective\_course\_api}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily elective\+\_\+course\+\_\+api.\+router = APIRouter(tags=\mbox{[}\char`\"{}Elective Courses\char`\"{}\mbox{]}, prefix=\char`\"{}/elective\+\_\+course\char`\"{})}
+

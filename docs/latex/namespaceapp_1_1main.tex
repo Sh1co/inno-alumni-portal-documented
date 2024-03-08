@@ -1,0 +1,149 @@
+\hypertarget{namespaceapp_1_1main}{}\doxysection{app.\+main Namespace Reference}
+\label{namespaceapp_1_1main}\index{app.main@{app.main}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1main_a869ac292735f37712a1cb6cff3b16b31}{startup}} ()
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1main_acfbae589813f48481917d39a51d7fc9e}{shutdown}} ()
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1main_a8c6bf0e9b45818b65f4a73176ee3f040}{startup\+\_\+event}} ()
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1main_a78e8921886349bc979e8c33be0790230}{shutdown\+\_\+event}} ()
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1main_a1fadd7253bf8541086a02c600f456a27}{index}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1main_ad298a89244e9e4e8bd9e929313eecea2}{app}}
+\item 
+list \mbox{\hyperlink{namespaceapp_1_1main_a8003cb21f0cc062995c3e1e6340a97f9}{origins}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1main_aabd4465835458f6b50293fb5422bb491}{allow\+\_\+origins}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1main_a52d43ff12c1e726efe6bca8ed74dffe7}{allow\+\_\+credentials}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1main_ae5d8d7aa9e3d7d13f413ed6623fc5603}{allow\+\_\+methods}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1main_a42c3fa639b77e3beb05fe807c0715c84}{allow\+\_\+headers}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1main_aa60243e70b2849ffc295b60b65923385}{final\+\_\+router}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1main_af67fbb30f6995fd993cb5a127e9591c9}{prefix}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1main_a1fadd7253bf8541086a02c600f456a27}\label{namespaceapp_1_1main_a1fadd7253bf8541086a02c600f456a27}} 
+\index{app.main@{app.main}!index@{index}}
+\index{index@{index}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}}
+{\footnotesize\ttfamily def app.\+main.\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Renders the HTML response for the root endpoint.
+
+Returns:
+    str: HTML content displaying API documentation link.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceapp_1_1main_acfbae589813f48481917d39a51d7fc9e}\label{namespaceapp_1_1main_acfbae589813f48481917d39a51d7fc9e}} 
+\index{app.main@{app.main}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily def app.\+main.\+shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function to run during application shutdown.
+
+It disconnects from the database.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceapp_1_1main_a78e8921886349bc979e8c33be0790230}\label{namespaceapp_1_1main_a78e8921886349bc979e8c33be0790230}} 
+\index{app.main@{app.main}!shutdown\_event@{shutdown\_event}}
+\index{shutdown\_event@{shutdown\_event}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{shutdown\_event()}{shutdown\_event()}}
+{\footnotesize\ttfamily def app.\+main.\+shutdown\+\_\+event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceapp_1_1main_a869ac292735f37712a1cb6cff3b16b31}\label{namespaceapp_1_1main_a869ac292735f37712a1cb6cff3b16b31}} 
+\index{app.main@{app.main}!startup@{startup}}
+\index{startup@{startup}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{startup()}{startup()}}
+{\footnotesize\ttfamily def app.\+main.\+startup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function to run during application startup.
+
+It connects to the database and sets up the Telegram bot.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceapp_1_1main_a8c6bf0e9b45818b65f4a73176ee3f040}\label{namespaceapp_1_1main_a8c6bf0e9b45818b65f4a73176ee3f040}} 
+\index{app.main@{app.main}!startup\_event@{startup\_event}}
+\index{startup\_event@{startup\_event}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{startup\_event()}{startup\_event()}}
+{\footnotesize\ttfamily def app.\+main.\+startup\+\_\+event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1main_a52d43ff12c1e726efe6bca8ed74dffe7}\label{namespaceapp_1_1main_a52d43ff12c1e726efe6bca8ed74dffe7}} 
+\index{app.main@{app.main}!allow\_credentials@{allow\_credentials}}
+\index{allow\_credentials@{allow\_credentials}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{allow\_credentials}{allow\_credentials}}
+{\footnotesize\ttfamily app.\+main.\+allow\+\_\+credentials}
+
+\mbox{\Hypertarget{namespaceapp_1_1main_a42c3fa639b77e3beb05fe807c0715c84}\label{namespaceapp_1_1main_a42c3fa639b77e3beb05fe807c0715c84}} 
+\index{app.main@{app.main}!allow\_headers@{allow\_headers}}
+\index{allow\_headers@{allow\_headers}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{allow\_headers}{allow\_headers}}
+{\footnotesize\ttfamily app.\+main.\+allow\+\_\+headers}
+
+\mbox{\Hypertarget{namespaceapp_1_1main_ae5d8d7aa9e3d7d13f413ed6623fc5603}\label{namespaceapp_1_1main_ae5d8d7aa9e3d7d13f413ed6623fc5603}} 
+\index{app.main@{app.main}!allow\_methods@{allow\_methods}}
+\index{allow\_methods@{allow\_methods}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{allow\_methods}{allow\_methods}}
+{\footnotesize\ttfamily app.\+main.\+allow\+\_\+methods}
+
+\mbox{\Hypertarget{namespaceapp_1_1main_aabd4465835458f6b50293fb5422bb491}\label{namespaceapp_1_1main_aabd4465835458f6b50293fb5422bb491}} 
+\index{app.main@{app.main}!allow\_origins@{allow\_origins}}
+\index{allow\_origins@{allow\_origins}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{allow\_origins}{allow\_origins}}
+{\footnotesize\ttfamily app.\+main.\+allow\+\_\+origins}
+
+\mbox{\Hypertarget{namespaceapp_1_1main_ad298a89244e9e4e8bd9e929313eecea2}\label{namespaceapp_1_1main_ad298a89244e9e4e8bd9e929313eecea2}} 
+\index{app.main@{app.main}!app@{app}}
+\index{app@{app}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily app.\+main.\+app}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  FastAPI(}
+\DoxyCodeLine{2     title=\textcolor{stringliteral}{"{}AlumniPortalAPI"{}},}
+\DoxyCodeLine{3     description=\textcolor{stringliteral}{"{}Building a united community of Innopolis Alumni"{}},}
+\DoxyCodeLine{4     version=\textcolor{stringliteral}{"{}1.0"{}},}
+\DoxyCodeLine{5 )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceapp_1_1main_aa60243e70b2849ffc295b60b65923385}\label{namespaceapp_1_1main_aa60243e70b2849ffc295b60b65923385}} 
+\index{app.main@{app.main}!final\_router@{final\_router}}
+\index{final\_router@{final\_router}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{final\_router}{final\_router}}
+{\footnotesize\ttfamily app.\+main.\+final\+\_\+router}
+
+\mbox{\Hypertarget{namespaceapp_1_1main_a8003cb21f0cc062995c3e1e6340a97f9}\label{namespaceapp_1_1main_a8003cb21f0cc062995c3e1e6340a97f9}} 
+\index{app.main@{app.main}!origins@{origins}}
+\index{origins@{origins}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{origins}{origins}}
+{\footnotesize\ttfamily list app.\+main.\+origins}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}http://localhost:3000"{}},}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}http://10.90.138.37"{}},}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}https://graduates.innopolis.university"{}},}
+\DoxyCodeLine{5 ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceapp_1_1main_af67fbb30f6995fd993cb5a127e9591c9}\label{namespaceapp_1_1main_af67fbb30f6995fd993cb5a127e9591c9}} 
+\index{app.main@{app.main}!prefix@{prefix}}
+\index{prefix@{prefix}!app.main@{app.main}}
+\doxysubsubsection{\texorpdfstring{prefix}{prefix}}
+{\footnotesize\ttfamily app.\+main.\+prefix}
+
