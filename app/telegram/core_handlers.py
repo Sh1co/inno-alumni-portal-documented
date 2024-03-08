@@ -9,15 +9,12 @@ from app.telegram.admin.data import SUPERADMIN_LIST
 MODULE_NAME = "core"
 bot = telebot.TeleBot(token=data.TOKEN)
 
-
 main_markup = telebot.types.ReplyKeyboardMarkup(True)
 main_markup.add(data.TEXT_BUTTON_PASS, data.TEXT_BUTTON_ELECTIVE, data.TEXT_BUTTON_PROFILE,
                 data.TEXT_BUTTON_DONATE)
 
 commands = [
     telebot.types.BotCommand("start", "starts InnoAlumni bot"),
-    # telebot.types.BotCommand("register", "simple profile setup"),
-    # telebot.types.BotCommand("register_and_auth", "Register and authenticate"),
     telebot.types.BotCommand(
         "profile", "View my profile information and status of requests"),
     telebot.types.BotCommand("request_elective", "Request an elective course"),
@@ -31,12 +28,6 @@ commands = [
         "donate", "Get a link you can use to securely donate to Alumni Club"),
     telebot.types.BotCommand(
         "volunteer", "Get urgent access to the university campus"),
-    # telebot.types.BotCommand(
-    #     "cancel", "Exit from any user flow process while using the bot"),
-    # telebot.types.BotCommand("upload_certificate",
-    #                          "Upload a copy of your diploma "),
-    # telebot.types.BotCommand(
-    #     "config_remind", "Remind me of any status updates (true by default)"),
     telebot.types.BotCommand(
         "feedback", "Suggest improvements and share bugs"),
     telebot.types.BotCommand("help", "Overview of bot commands"),
@@ -52,6 +43,16 @@ logger.addHandler(handler)
 
 
 def log(module, message):
+    """
+    Log user actions and messages.
+
+    Args:
+        module (str): The name of the module.
+        message (telebot.types.Message): The message received.
+
+    Returns:
+        None
+    """
     if message.from_user.username:
         user = message.from_user.username
     else:
@@ -61,10 +62,25 @@ def log(module, message):
 
 
 def attach_core_module():
+    """
+    Attach core functionality to the bot.
+
+    Returns:
+        None
+    """
     fullname = None
 
     @bot.message_handler(commands=['start'])
     def start_command(message):
+        """
+        Handle the /start command.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"USER {message.from_user.id} clicked start")
         bot.send_message(message.chat.id, data.MESSAGE_HI, reply_markup=main_markup)
@@ -76,6 +92,15 @@ def attach_core_module():
             bot.register_next_step_handler(msg, process_register_fullname_step)
 
     def process_register_fullname_step(message):
+        """
+        Process user input for fullname during registration.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,
@@ -92,6 +117,15 @@ def attach_core_module():
         bot.register_next_step_handler(msg, process_register_email_step)
         
     def process_register_email_step(message):
+        """
+        Process user input for email during registration.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,
@@ -111,15 +145,34 @@ def attach_core_module():
 
 
 
+
     @bot.message_handler(commands=['help'])
     def help_command(message):
+        """
+        Handle the /help command.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"USER {message.from_user.id} clicked help")
         bot.send_message(message.chat.id, data.MESSAGE_HELP,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
 
     @bot.message_handler(commands=['feedback'])
     def send_feedback(message):
+        """
+        Handle the /feedback command.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"USER {message.from_user.id} wants to send feedback")
         user = controller.get_user(message.from_user.id)
@@ -132,10 +185,19 @@ def attach_core_module():
         bot.register_next_step_handler(msg, process_feedback_step)
 
     def process_feedback_step(message):
+        """
+        Process user feedback.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
 
         user = controller.get_user(message.from_user.id)
@@ -147,19 +209,31 @@ def attach_core_module():
             bot.send_message(
                 admin, f"{data.MESSAGE_FEEDBACK} {str(alias)}:\n{feedback}")
         bot.send_message(message.chat.id, data.FEEDBACK_SUCCESS,
-                         reply_markup=main_markup)
-
+                        reply_markup=main_markup)
 
 def compose_attached_modules(set_proxy=False):
+    """
+    Compose attached modules to the bot.
 
+    Args:
+        set_proxy (bool): Flag to set proxy configuration.
+
+    Returns:
+        None
+    """
     @bot.message_handler()
     def garbage_message_handler(message):
         """
         Fallback handler for unknown messages
         To be called after all other modules have mounted their handlers
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
         """
         log(MODULE_NAME, message)
-        # You could implement chatgpt or just Q&A over here
         bot.send_message(message.chat.id, data.MESSAGE_ERROR,
                          reply_markup=main_markup)
         user = controller.get_user(message.from_user.id)
@@ -174,6 +248,4 @@ def compose_attached_modules(set_proxy=False):
         print("Bot begins polling")
         bot.infinity_polling(long_polling_timeout=5, timeout=10)
 
-    # bot.delete_my_commands()
-    # bot.set_my_commands(commands=commands)
     Thread(target=polling_telegram_bot_commands, daemon=True).start()

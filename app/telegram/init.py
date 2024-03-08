@@ -6,7 +6,12 @@ from app.telegram.admin.handlers import attach_admin_module
 
 
 def setup_telegram_bot():
-    
+    """
+    Setup the Telegram bot by attaching required modules and starting to listen.
+
+    Returns:
+        None
+    """
     # attach required modules
     attach_core_module()
     attach_request_pass_module()

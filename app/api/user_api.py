@@ -18,6 +18,18 @@ router = APIRouter(tags=["User Authentication"], prefix="/user")
 def login_alumni(
     user_cred: OAuth2PasswordRequestForm = Depends()
 ):
+    """
+    Authenticates an alumni user and returns an access token.
+
+    Args:
+        user_cred: An instance of OAuth2PasswordRequestForm containing the user's email (username) and password.
+
+    Raises:
+        HTTPException: 404 error if the user cannot be found or the password is incorrect.
+
+    Returns:
+        A JSON object containing the bearer token and its type.
+    """
     user = db.user.find_first(where={"email": user_cred.username})
     print(user, user_cred)
     if not user:
@@ -36,6 +48,18 @@ def login_alumni(
 
 @router.post("/register",status_code=status.HTTP_201_CREATED)
 def create_alumni_account(user_to_create: schemas.SignUpUser):
+    """
+    Registers a new alumni account with the provided user details.
+
+    Args:
+        user_to_create: An instance of SignUpUser schema containing the user's signup information.
+
+    Raises:
+        HTTPException: 400 error if the password confirmation fails or the user already exists.
+
+    Returns:
+        A success message indicating the user has been successfully registered.
+    """
     password = user_to_create.password
     confirm_password = user_to_create.confirm_password
     if password != confirm_password:
@@ -61,7 +85,18 @@ def create_alumni_account(user_to_create: schemas.SignUpUser):
 
 @router.post("/register-admin",response_model=schemas.UserOutput, status_code=status.HTTP_201_CREATED)
 def create_admin_account(admin: schemas.CreateAdminUser):
+    """
+    Registers a new admin account with the provided admin details.
 
+    Args:
+        admin: An instance of CreateAdminUser schema containing the admin's registration information.
+
+    Raises:
+        HTTPException: 400 error if an admin with the provided email already exists.
+
+    Returns:
+        The newly created admin user details.
+    """
     found_user = db.user.find_first(where={"email": admin.email, "role": "ADMIN"})
 
     # If user is found return with error
@@ -80,6 +115,16 @@ def create_admin_account(admin: schemas.CreateAdminUser):
 @router.post("/update", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOutput)
 def update_alumni_account(up_user: schemas.UpdateUser, 
                         cur_user:schemas.InternalUser = Depends(get_current_user)):
+    """
+    Updates an existing alumni account with the provided new details.
+
+    Args:
+        up_user: An instance of UpdateUser schema containing the updated user information.
+        cur_user: The current user session, determined through JWT token authentication.
+
+    Returns:
+        The updated user details.
+    """
     updated_user = db.user.update(where={"id": cur_user.id}, 
     data={
         "name": up_user.name if up_user.name else cur_user.name,
@@ -102,6 +147,19 @@ def update_password(
     pass_info: schemas.UpdateUserPassword,
     cur_user:schemas.UserWithPassword = Depends(get_current_user)
 ):
+    """
+    Updates the password of the current logged-in user.
+    
+    Args:
+        pass_info: Schema containing the current and new password of the user.
+        cur_user: The current logged-in user whose password is to be updated.
+        
+    Raises:
+        HTTPException: If the current password provided is incorrect.
+        
+    Returns:
+        A response indicating the successful password update.
+    """
     if not hash.verify_password(pass_info.current_password, cur_user.password):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Currently entered password is wrong")
     
@@ -118,6 +176,15 @@ def update_password(
 
 @router.get("/", response_model=schemas.UserOutput, status_code=status.HTTP_200_OK)
 def get_current_alumni(cur_user:schemas.UserOutput = Depends(get_current_user)):
+    """
+    Retrieves the details of the current logged-in alumni user.
+    
+    Args:
+        cur_user: The current logged-in user obtained from JWT token.
+        
+    Returns:
+        The current user's details.
+    """
     return cur_user
 
 
@@ -126,6 +193,15 @@ def get_all_registered_alumni(cur_user:schemas.UserOutput = Depends(get_current_
     users = db.user.find_many(include={"course_request": True, "pass_request": True, "donation": True}, order={
         "created_at": "desc"
     })
+    """
+    Retrieves a list of all registered alumni users along with their statistics.
+    
+    Args:
+        cur_user: The current logged-in user, used to authenticate the request.
+        
+    Returns:
+        A list of all users with their details and statistics.
+    """
     users_with_stats = list(map(lambda u: {
         "id": u.id, "name": u.name, "email": u.email, "contact_email": u.contact_email,
         "phone_number": u.phone_number, "role": u.role, "graduation_year": u.graduation_year, "graduated_track": u.graduated_track,
@@ -141,6 +217,19 @@ def forgot_password(
     university_email: str,
     background_tasks: BackgroundTasks,
 ):
+    """
+    Initiates the password recovery process by sending a reset password email.
+    
+    Args:
+        university_email: The email of the user who has forgotten their password.
+        background_tasks: BackgroundTasks object to handle email sending asynchronously.
+        
+    Raises:
+        HTTPException: If no user is found with the provided email.
+        
+    Returns:
+        A successful response indicating the email has been sent.
+    """
     # user.forgot_password(user_email.email, background_tasks,  db)
     user = db.user.find_first(where={"email": university_email})
 
@@ -161,6 +250,15 @@ def forgot_password(
 def update_password(
     user_info,
 ):
+    """
+    Endpoint to update the password as part of the forgot password process.
+    
+    Args:
+        user_info: Information required to update the password.
+        
+    Returns:
+        A successful response indicating the password has been updated.
+    """
     # user.hash_update_password(user_info, db)
     return Response(status_code=status.HTTP_200_OK)
 
@@ -173,6 +271,19 @@ def verify_account(
     university_email: str,
     background_tasks: BackgroundTasks
 ):
+    """
+    Sends an account verification email to the user.
+    
+    Args:
+        university_email: The email address of the user to verify.
+        background_tasks: BackgroundTasks object for asynchronous email sending.
+        
+    Raises:
+        HTTPException: If no user is found with the provided email or the user is already verified.
+        
+    Returns:
+        A successful response indicating the verification email has been sent.
+    """
     # user.verify_user_account(user_email.email, background_tasks,  db)
     user = db.user.find_first(where={"email": university_email})
 
@@ -195,6 +306,18 @@ def verify_account(
 def confirm_verification(
     verify:schemas.VerificationCode,
 ):
+    """
+    Confirms the account verification of a user using a verification code.
+    
+    Args:
+        verify: Schema containing the verification code and the user's email.
+        
+    Raises:
+        HTTPException: If the user is not found, already verified, verification code expired, or incorrect code is provided.
+        
+    Returns:
+        A successful response indicating the account has been verified.
+    """
     # user.confirm_verification(verify.code, verify.email, db)
     user = db.user.find_first(where={"email": verify.email})
 
@@ -236,22 +359,46 @@ sso = SSOProvider(
 
 @router.get("/login_sso")
 async def login_with_sso():
+    """
+    Initiates the SSO login process by redirecting the user to the SSO provider's login page.
+
+    Returns:
+        A redirection to the SSO login page to start the authentication process.
+    """
     print("login_sso")
     print(sso)
     return await sso.get_login_redirect()
 
 @router.get("/token_sso")
 def token_callback_with_sso():
+    """
+    SSO token callback endpoint to receive the authentication token.
+
+    Note: This function is a placeholder and should be implemented to handle the token received from the SSO provider.
+    """
     print("token_sso")
     pass
 
 @router.get("/user_sso")
 def user_callback_with_sso():
+    """
+    SSO user callback endpoint to receive user information after successful authentication.
+
+    Note: This function is a placeholder and should be implemented to handle user information received from the SSO provider.
+    """
     print("user_sso")
     pass
 
 @router.get("/callback")
 async def authentication_callback_with_sso(request: Request):
+    """
+    Processes the authentication callback from the SSO provider.
+
+    Args:
+        request: The incoming request object from the SSO provider containing user authentication details.
+
+    Note: This function demonstrates processing the callback and should be customized to handle the authentication logic.
+    """
     print("callback", request)
     user = await sso.verify_and_process(request)
     print(user)

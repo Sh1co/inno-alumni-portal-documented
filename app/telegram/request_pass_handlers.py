@@ -1,15 +1,31 @@
+from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 from app.telegram.core_handlers import bot, log, main_markup
 from app.telegram import data, controller
-from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 MODULE_NAME = "REQUEST_PASS"
 
 
 def attach_request_pass_module():
+    """
+    Attach the request pass module to the Telegram bot.
+
+    Returns:
+        None
+    """
+
     number_of_visitors = None
     requested_date = None
 
     def handle_request_pass(message):
+        """
+        Handle different types of pass requests.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         if message.data == 'APPROVE_REQUEST':
             request_id = message.message.text.split('[')[1].split(']')[0]
             print(request_id)
@@ -50,12 +66,20 @@ def attach_request_pass_module():
             bot.edit_message_text(message_id=message.message.id, chat_id=message.from_user.id, text=request_text, reply_markup=InlineKeyboardMarkup())
             msg = bot.send_message(message.from_user.id, data.REQUEST_NUMBER_VISITORS, reply_markup=main_markup)
             bot.register_next_step_handler(msg, process_number_of_individuals_step)
-    
 
     @bot.message_handler(commands=['request_pass'])
     @bot.message_handler(regexp=f"^{data.TEXT_BUTTON_PASS}$")
     @bot.callback_query_handler(handle_request_pass)
     def request_pass(message):
+        """
+        Handle the request pass command from the user.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"REQUEST PASS pressed by {message.from_user.id}")
         user = controller.get_user(message.from_user.id)
@@ -79,6 +103,15 @@ def attach_request_pass_module():
             message.chat.id, data.REQUEST_PASS, reply_markup=reply_markup)
 
     def process_number_of_individuals_step(message):
+        """
+        Process the number of individuals step in the pass request.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         if message.text == "/cancel":
             bot.send_message(message.chat.id, data.MESSAGE_CANCEL,
                              reply_markup=main_markup)
@@ -97,15 +130,25 @@ def attach_request_pass_module():
         bot.register_next_step_handler(
             msg, process_request_date_step)
 
+
     def process_request_date_step(message):
+        """
+        Process the requested date step in the pass request.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         if message.text == "/cancel":
             bot.send_message(message.chat.id, data.MESSAGE_CANCEL,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
 
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
 
         global requested_date
@@ -117,20 +160,29 @@ def attach_request_pass_module():
             msg, process_visitor_names_step)
 
     def process_visitor_names_step(message):
+        """
+        Process the visitor names step in the pass request.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         if message.text == "/cancel":
             bot.send_message(message.chat.id, data.MESSAGE_CANCEL,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
 
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
         user = controller.get_user(message.from_user.id)
         p_requests = controller.get_pending_pass_request(message.from_user.id)
         if len(p_requests) >= 1:
             bot.send_message(message.chat.id, data.MESSAGE_NO_MULTIPLE_PASS_REQUEST,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
 
         visitor_names = message.text
@@ -162,20 +214,29 @@ def attach_request_pass_module():
             message.chat.id, data.REQUEST_PASS_SENT, reply_markup=main_markup)
 
     def process_simple_request_date_step(message):
+        """
+        Process the simple request date step in the pass request.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         if message.text == "/cancel":
             bot.send_message(message.chat.id, data.MESSAGE_CANCEL,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
 
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
         user = controller.get_user(message.from_user.id)
         p_requests = controller.get_pending_pass_request(message.from_user.id)
         if len(p_requests) >= 1:
             bot.send_message(message.chat.id, data.MESSAGE_NO_MULTIPLE_PASS_REQUEST,
-                             reply_markup=main_markup)
+                            reply_markup=main_markup)
             return
 
         requested_date = message.text
@@ -207,6 +268,15 @@ def attach_request_pass_module():
 
     @bot.message_handler(commands=['cancel_pass'])
     def cancel_pass(message):
+        """
+        Cancel the pending pass request.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"DELETE PASS pressed by {message.from_user.id}")
         requests = controller.get_pending_pass_request(
@@ -221,6 +291,15 @@ def attach_request_pass_module():
             message.chat.id, data.CLEARED_PASS_REQUEST, reply_markup=main_markup)
 
     def handle_volunteer_response(message):
+        """
+        Handle the response to a volunteer request.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         if message.data == 'CAN_HANDLE_REQUEST':
             user_id = message.message.text.split('[')[1].split(']')[0]
             response_user = f"User with telegram alias @{message.from_user.username} is available and has volunteered to assist you. Please, write him immediately. Thanks for your patience."
@@ -239,6 +318,15 @@ def attach_request_pass_module():
     @bot.message_handler(commands=['volunteer'])
     @bot.callback_query_handler(handle_volunteer_response)
     def request_volunteer(message):
+        """
+        Request a volunteer for assistance.
+
+        Args:
+            message: The message received from the user.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"REQUEST VOLUNTEER {message.from_user.id}")
         user = controller.get_user(message.from_user.id)

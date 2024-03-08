@@ -3,13 +3,26 @@ from app.telegram.core_handlers import bot, log, main_markup
 from app.telegram import data, controller
 from telebot.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 
-
-MODULE_NAME="ELECTIVES"
+MODULE_NAME = "ELECTIVES"
 
 def attach_elective_module():
+    """
+    Attach elective module handlers to the bot.
 
+    Returns:
+        None
+    """
     @bot.message_handler(regexp=f"^{data.TEXT_BUTTON_ELECTIVE}$")
     def list_electives(message):
+        """
+        Handle the command to list available elective courses.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"LIST ELECTIVE pressed by {message.from_user.id}")
         user = controller.get_user(message.from_user.id)
@@ -33,6 +46,15 @@ def attach_elective_module():
             message.chat.id, course_details)
 
     def handle_request_elective(message):
+        """
+        Handle elective request.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         if message.data == 'ACCEPT_REQUEST':
             request_id = message.message.text.split('[')[1].split(']')[0]
             print(request_id)
@@ -70,6 +92,15 @@ def attach_elective_module():
     @bot.message_handler(commands=['request_elective'])
     @bot.callback_query_handler(handle_request_elective)
     def elective_configuration(message):
+        """
+        Handle elective configuration.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"REQUEST ELECTIVE pressed by {message.from_user.id}")
         user = controller.get_user(message.from_user.id)
@@ -93,48 +124,69 @@ def attach_elective_module():
         bot.register_next_step_handler(
             msg, process_elective_step, course_abbrevations)
 
+
     def process_elective_step(message, elective_courses):
-        log(MODULE_NAME, message)
-        if not message.text:
-            bot.send_message(message.chat.id, data.MESSAGE_ERROR,
-                             reply_markup=main_markup)
-            return
+        """
+        Process the elective step.
 
-        elective = message.text
-        if elective not in elective_courses:
-            bot.send_message(message.chat.id, data.MESSAGE_ERROR,
-                             reply_markup=main_markup)
-            return
-        elective_object = controller.get_elective_by_name(elective)
-        user = controller.get_user(message.from_user.id)
-        description = f"ELECTIVE REQUEST\n\nhandle: \n@{user.handle}\n\nEmail: \n{user.email}\n\nFull names: \n{user.fullnames}\n\n" + \
-            f"Elective name: \n{elective_object.name}\n\nElective description: \n{elective_object.description}"
-        request = controller.request_elective(elective, message.from_user.id, description)
-        description = f"[{request.id}]\n\n{description}"
-        keyboard = [
-            [
-                InlineKeyboardButton(
-                    data.APPROVE_REQUEST, callback_data="ACCEPT_REQUEST")
-            ],
-            [
-                InlineKeyboardButton(
-                    data.REJECT_REQUEST, callback_data="REFUSE_REQUEST")
-            ],
-        ]
-        reply_markup = InlineKeyboardMarkup(keyboard)
+        Args:
+            message (telebot.types.Message): The message received.
+            elective_courses (list): List of available elective courses.
 
-        for id in data.ALUMNI_OFFICE_LIST:
-            try:
-                bot.send_message(id, description, reply_markup=reply_markup)
-            except:
-                print(
-                    f"Error happened while sending pass request message to {id}")
-                continue
-        bot.send_message(
-            message.chat.id, data.MESSAGE_ELECTIVE_REQUEST_SUCCESSFUL, reply_markup=main_markup)
+        Returns:
+            None
+        """
+    log(MODULE_NAME, message)
+    if not message.text:
+        bot.send_message(message.chat.id, data.MESSAGE_ERROR,
+                         reply_markup=main_markup)
+        return
+
+    elective = message.text
+    if elective not in elective_courses:
+        bot.send_message(message.chat.id, data.MESSAGE_ERROR,
+                         reply_markup=main_markup)
+        return
+    elective_object = controller.get_elective_by_name(elective)
+    user = controller.get_user(message.from_user.id)
+    description = f"ELECTIVE REQUEST\n\nhandle: \n@{user.handle}\n\nEmail: \n{user.email}\n\nFull names: \n{user.fullnames}\n\n" + \
+        f"Elective name: \n{elective_object.name}\n\nElective description: \n{elective_object.description}"
+    request = controller.request_elective(
+        elective, message.from_user.id, description)
+    description = f"[{request.id}]\n\n{description}"
+    keyboard = [
+        [
+            InlineKeyboardButton(
+                data.APPROVE_REQUEST, callback_data="ACCEPT_REQUEST")
+        ],
+        [
+            InlineKeyboardButton(
+                data.REJECT_REQUEST, callback_data="REFUSE_REQUEST")
+        ],
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    for id in data.ALUMNI_OFFICE_LIST:
+        try:
+            bot.send_message(id, description, reply_markup=reply_markup)
+        except:
+            print(
+                f"Error happened while sending pass request message to {id}")
+            continue
+    bot.send_message(
+        message.chat.id, data.MESSAGE_ELECTIVE_REQUEST_SUCCESSFUL, reply_markup=main_markup)
 
     @bot.message_handler(commands=['clear_electives'])
     def remove_elective(message):
+        """
+        Remove elective courses.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"REMOVE ELECTIVE pressed by {message.from_user.id}")
         requests = controller.get_pending_elective_request(

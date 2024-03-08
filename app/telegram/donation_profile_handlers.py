@@ -2,27 +2,49 @@ from app.telegram.core_handlers import bot, log, main_markup
 from app.telegram import data, controller
 from telebot.types import ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup
 
-
 MODULE_NAME = "DONATION_PROFILE"
 
-
 def attach_donation_profile_module():
+    """
+    Attach the donation profile module to the bot.
+
+    Returns:
+        None
+    """
     fullname = None
 
     @bot.message_handler(commands=['donate'])
     @bot.message_handler(regexp=f"^{data.TEXT_BUTTON_DONATE}$")
     def donate(message):
+        """
+        Handle the donation command or button press.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"donation link pressed by {message.from_user.id}")
         user = controller.get_user(message.from_user.id)
         if not user:
             bot.send_message(
-            message.chat.id, data.MESSAGE_REGISTER_ACCOUNT, reply_markup=main_markup)
+                message.chat.id, data.MESSAGE_REGISTER_ACCOUNT, reply_markup=main_markup)
             return
         bot.send_message(
             message.chat.id, data.DONATION_MESSAGE, reply_markup=main_markup, parse_mode="MarkdownV2")
 
     def handle_modify_profile_response(message):
+        """
+        Handle responses for modifying the user profile.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         if message.data == 'UPDATE_PROFILE':
             bot.send_message(message.from_user.id, data.UPDATE_PROFILE_START, reply_markup=main_markup)
             msg = bot.send_message(message.from_user.id, data.REGISTER_PROMPT_FULLNAME,
@@ -34,6 +56,15 @@ def attach_donation_profile_module():
             controller.clear_request_history(message.from_user.id)
     
     def process_modify_fullname_step(message):
+        """
+        Process the modification of the user's full name.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,
@@ -50,6 +81,15 @@ def attach_donation_profile_module():
         bot.register_next_step_handler(msg, process_modify_email_step)
         
     def process_modify_email_step(message):
+        """
+        Process the modification of the user's email.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,
@@ -70,12 +110,21 @@ def attach_donation_profile_module():
     @bot.message_handler(regexp=f"^{data.TEXT_BUTTON_PROFILE}$")
     @bot.callback_query_handler(handle_modify_profile_response)
     def view_profile(message):
+        """
+        Handle the request to view the user's profile.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         print(f"USER {message.from_user.id} wants to see profile")
         user = controller.get_full_user(message.from_user.id)
         if not user:
             bot.send_message(
-            message.chat.id, data.MESSAGE_REGISTER_ACCOUNT, reply_markup=main_markup)
+                message.chat.id, data.MESSAGE_REGISTER_ACCOUNT, reply_markup=main_markup)
             return
         requests = controller.get_requests(message.from_user.id)
         display_request = list(
@@ -101,6 +150,15 @@ def attach_donation_profile_module():
         bot.send_message(message.chat.id, reply, reply_markup=reply_markup)
 
     def remind_configuration(message):
+        """
+        Configure reminders for the user.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         if message.text == '/config_remind':
             print(f"CONFIG REMIND pressed by {message.from_user.id}")
@@ -111,6 +169,15 @@ def attach_donation_profile_module():
             bot.register_next_step_handler(msg, process_reminders_step)
 
     def process_reminders_step(message):
+        """
+        Process the user's response for configuring reminders.
+
+        Args:
+            message (telebot.types.Message): The message received.
+
+        Returns:
+            None
+        """
         log(MODULE_NAME, message)
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ERROR,

@@ -4,10 +4,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.db import db
 from app.telegram.init import setup_telegram_bot
 from app.version import router as final_router
-# import sys
-# print(sys.executable)
-# print(sys.path)
 
+import sys
+
+sys.path.insert(0, "path/to/app")
+import app.config  # Adjust based on your module structure
 
 
 app = FastAPI(
@@ -16,35 +17,63 @@ app = FastAPI(
     version="1.0",
 )
 
-origins = ['http://localhost:3000', "http://10.90.138.37", "https://graduates.innopolis.university"]
+origins = [
+    "http://localhost:3000",
+    "http://10.90.138.37",
+    "https://graduates.innopolis.university",
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins= origins,
-    allow_credentials= True,
+    allow_origins=origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+
 app.include_router(final_router, prefix="/api/v1")
 
-@app.on_event("startup")
-def startup():
-    print(f'db connected...')
-    db.connect()
 
-    # Running telegram bot
+def startup():
+    """
+    Function to run during application startup.
+
+    It connects to the database and sets up the Telegram bot.
+    """
+    print(f"db connected...")
+    db.connect()
     setup_telegram_bot()
 
 
-@app.on_event("shutdown")
 def shutdown():
-    print(f'db disconnected...')
+    """
+    Function to run during application shutdown.
+
+    It disconnects from the database.
+    """
+    print(f"db disconnected...")
     db.disconnect()
+
+
+@app.on_event("startup")
+def startup_event():
+    startup()
+
+
+@app.on_event("shutdown")
+def shutdown_event():
+    shutdown()
 
 
 @app.get("/", response_class=HTMLResponse, include_in_schema=False)
 def index():
+    """
+    Renders the HTML response for the root endpoint.
+
+    Returns:
+        str: HTML content displaying API documentation link.
+    """
     return """
     <!Doctype html>
     <html>

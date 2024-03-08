@@ -5,13 +5,21 @@ from app.telegram.admin import data
 
 
 def attach_admin_module():
+    """
+    Attach the admin module to the Telegram bot.
+
+    Registers commands and their corresponding handlers for administrative tasks.
+    """
     admin_commands = ['die', 'log', 'spam', 'pm',
                       'helpa', 'spam_course', 'spam_group']
 
     @bot.message_handler(commands=admin_commands)
     def admin(message):
         """
-        Register module's commands
+        Handle administrative commands.
+
+        Args:
+            message: Telegram message object.
         """
         log(data.MODULE_NAME, message)
         # only admins from list are allowed to call admin commands
@@ -70,6 +78,13 @@ def attach_admin_module():
                 message.chat.id, f"VALID ADMIN COMMANDS:\n{'   '.join(admin_commands)}")
 
     def process_course_step(message, short_names):
+        """
+        Process the course step for administrative tasks.
+
+        Args:
+            message: Telegram message object.
+            short_names (list): List of short names of elective courses.
+        """
         log(data.MODULE_NAME, message)
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ABORTED)
@@ -89,6 +104,13 @@ def attach_admin_module():
         bot.register_next_step_handler(msg, process_spam_step, user_ids)
 
     def process_group_step(message, group_names):
+        """
+        Process the group step for administrative tasks.
+
+        Args:
+            message: Telegram message object.
+            group_names (list): List of group names.
+        """
         log(data.MODULE_NAME, message)
         if not message.text:
             bot.send_message(message.chat.id, data.MESSAGE_ABORTED)
@@ -108,6 +130,13 @@ def attach_admin_module():
         bot.register_next_step_handler(msg, process_spam_step, user_ids)
 
     def process_spam_step(message, user_ids=[]):
+        """
+        Process the spam step for administrative tasks.
+
+        Args:
+            message: Telegram message object.
+            user_ids (list): List of user IDs.
+        """
         log(data.MODULE_NAME, message)
         # abort operation if needed
         if message.text == "C":
@@ -124,7 +153,10 @@ def attach_admin_module():
 
     def process_pm_alias_step(message):
         """
-        Get alias of user to send private message
+        Process the private message alias step for administrative tasks.
+
+        Args:
+            message: Telegram message object.
         """
         log(data.MODULE_NAME, message)
         # abort operation if needed
